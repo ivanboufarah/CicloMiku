@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - 👤 Mi Perfil</title>
+  <meta name="description" content="Panel de usuario y perfil de cliente en CicloMiku.">
+  <link rel="stylesheet" href="../CSS/perfil.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y BOTÓN DE USUARIO
+       ========================================================================== -->
+  <div id="cabecera">
+    <h1><a href="CicloMiku.html" style="color: #F2ECDC; text-decoration: none;">Ciclo <span>Miku</span></a></h1>
+    
+    <div id="navegacion">
+      <a href="../CSS/perfil.css">Accesorios</a>
+    </div>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="../menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="../menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="../menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="../menu_usuario/historial.html">📋 Historial</a>
+        <a href="../menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="../menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="../menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. CONTENEDOR Y SUB-MENÚ DE PESTAÑAS DE USUARIO
+       ========================================================================== -->
+  <div class="contenedor-usuario">
+
+
+    <!-- TARJETA PRINCIPAL: DATOS DE PERFIL -->
+    <div class="tarjeta-usuario">
+      <div class="perfil-cabecera">
+        <div class="perfil-avatar">IB</div>
+        <div class="perfil-info-principal">
+          <h2>Ivan Boufarah</h2>
+          <p>ivanboufarah@gmail.com | +54 9 299 123-4567</p>
+          <span class="rango-socio">⭐ Socio CicloClub Oro (1.450 puntos acumulados)</span>
+        </div>
+      </div>
+
+      <div class="grilla-perfil">
+        
+        <!-- COLUMNA IZQUIERDA: INFORMACIÓN PERSONAL -->
+        <div class="caja-datos">
+          <h3>Información Personal</h3>
+          <div class="item-dato">
+            <strong>Nombre y Apellido:</strong>
+            <span>Ivan Boufarah</span>
+          </div>
+          <div class="item-dato">
+            <strong>DNI / Documento:</strong>
+            <span>42.859.102</span>
+          </div>
+          <div class="item-dato">
+            <strong>Correo Electrónico:</strong>
+            <span>ivanboufarah@gmail.com</span>
+          </div>
+          <div class="item-dato">
+            <strong>Teléfono de Contacto:</strong>
+            <span>+54 9 299 123-4567</span>
+          </div>
+          <div class="item-dato">
+            <strong>Fecha de Nacimiento:</strong>
+            <span>14 de Mayo de 1999</span>
+          </div>
+          <div class="item-dato">
+            <strong>Miembro desde:</strong>
+            <span>Enero de 2024</span>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: DIRECCIONES Y PREFERENCIAS -->
+        <div class="caja-datos">
+          <h3>Dirección de Envío Principal</h3>
+          <div class="item-dato">
+            <strong>Calle y Altura:</strong>
+            <span>Av. del Libertador 4580, Piso 4 Depto B</span>
+          </div>
+          <div class="item-dato">
+            <strong>Ciudad / Localidad:</strong>
+            <span>CABA (Buenos Aires)</span>
+          </div>
+          <div class="item-dato">
+            <strong>Código Postal:</strong>
+            <span>C1426BWP</span>
+          </div>
+          <div class="item-dato">
+            <strong>Instrucciones de Entrega:</strong>
+            <span>Tocar timbre en portería, dejar con encargado si no estoy.</span>
+          </div>
+
+          <h3 style="margin-top: 20px;">Mi Bicicleta Actual</h3>
+          <div class="item-dato">
+            <strong>Modelo:</strong>
+            <span>Specialized Demo 7 - Rodado 27.5</span>
+          </div>
+          <div class="item-dato">
+            <strong>Último Service Oficial:</strong>
+            <span>15 de Noviembre 2024 (Taller CicloMiku)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTONES DE ACCIÓN RÁPIDA -->
+      <div class="acciones-perfil">
+        <a href="configuracion.html" class="btn-accion-secundario">⚙️ Modificar Mis Datos</a>
+        <a href="turnosmiku.html" class="btn-accion-primario">📅 Agendar Próximo Service</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA
+       ========================================================================== -->
+  <div id="pie">
+    <div class="pie-contenido">
+      <div class="pie-columna">
+        <h4>Ciclo Miku Store & Taller</h4>
+        <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Ubicación y Horarios</h4>
+        <p>📍 Av. Principal 1234, CABA</p>
+        <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Contacto</h4>
+        <p>📞 Teléfono: +54 11 234-5678</p>
+        <p>✉️ Email: ventas@ciclomiku.com</p>
+      </div>
+    </div>
+    
+    <div class="pie-creditos">
+      CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+    </div>
+  </div>
+
+  <script>
+const botonUsuario = document.getElementById("btn-usuario");
+
+const menuUsuario = document.getElementById("menu-usuario");
+
+
+/* ABRIR Y CERRAR EL MENÚ */
+
+botonUsuario.addEventListener("click", function() {
+
+  if (menuUsuario.style.display === "block") {
+
+    menuUsuario.style.display = "none";
+
+  } else {
+
+    menuUsuario.style.display = "block";
+
+  }
+
+});
+
+
+/* CERRAR AL HACER CLIC AFUERA */
+
+document.addEventListener("click", function(event) {
+
+  if (!event.target.closest(".usuario-menu")) {
+
+    menuUsuario.style.display = "none";
+
+  }
+
+});
+  </script>
+</body>
+</html>

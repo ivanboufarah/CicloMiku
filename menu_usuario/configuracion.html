@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - ⚙️ Configuración de Cuenta</title>
+  <meta name="description" content="Configuración de preferencias, seguridad y datos de cuenta en CicloMiku.">
+  <link rel="stylesheet" href="../CSS/configuracion.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y BOTÓN DE USUARIO
+       ========================================================================== -->
+  <div id="cabecera">
+    <h1><a href="CicloMiku.html" style="color: #F2ECDC; text-decoration: none;">Ciclo <span>Miku</span></a></h1>
+    
+    <div id="navegacion">
+      <a href="CicloMiku.html">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </div>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="../menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="../menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="../menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="../menu_usuario/historial.html">📋 Historial</a>
+        <a href="../menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="../menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="../menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: CONFIGURACIÓN
+       ========================================================================== -->
+  <div class="contenedor-usuario">
+    
+    <!-- TARJETA CONTENEDORA -->
+    <div class="tarjeta-usuario">
+      <h2 class="titulo-seccion">⚙️ Configuración y Preferencias</h2>
+      <p class="subtitulo-seccion">Administrá tus datos personales, contraseña, notificaciones y direcciones guardadas.</p>
+
+      <form onsubmit="event.preventDefault(); guardarConfiguracion();">
+        
+        <!-- SECCIÓN 1: DATOS PERSONALES -->
+        <div class="bloque-config">
+          <h3>👤 Datos Personales y de Contacto</h3>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="campo">
+              <label for="conf-nombre">Nombre y Apellido:</label>
+              <input type="text" id="conf-nombre" class="input-config" value="Ivan Boufarah" required>
+            </div>
+
+            <div class="campo">
+              <label for="conf-email">Correo Electrónico:</label>
+              <input type="email" id="conf-email" class="input-config" value="ivanboufarah@gmail.com" required>
+            </div>
+
+            <div class="campo">
+              <label for="conf-tel">Teléfono / WhatsApp:</label>
+              <input type="tel" id="conf-tel" class="input-config" value="+54 9 299 123-4567" required>
+            </div>
+
+            <div class="campo">
+              <label for="conf-dni">Documento (DNI / Pasaporte):</label>
+              <input type="text" id="conf-dni" class="input-config" value="42.859.102" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 2: SEGURIDAD Y CONTRASEÑA -->
+        <div class="bloque-config">
+          <h3>🔒 Seguridad y Contraseña</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 15px; max-width: 600px;">
+            <div class="campo">
+              <label for="conf-pass-actual">Contraseña Actual:</label>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="password" id="conf-pass-actual" class="input-config" value="mipassword123" style="margin-top: 0;">
+                <button type="button" class="btn-accion btn-secundario" style="min-height: 50px; white-space: nowrap;" onclick="alternarPass('conf-pass-actual', this)">Mostrar</button>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="conf-pass-nueva">Nueva Contraseña:</label>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="password" id="conf-pass-nueva" class="input-config" placeholder="Mínimo 8 caracteres" style="margin-top: 0;">
+                <button type="button" class="btn-accion btn-secundario" style="min-height: 50px; white-space: nowrap;" onclick="alternarPass('conf-pass-nueva', this)">Mostrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 3: PREFERENCIAS DE AVISOS (CHECKBOX AL LADO DEL TEXTO) -->
+        <div class="bloque-config">
+          <h3>🔔 Preferencias de Notificaciones</h3>
+          <p style="font-size: 13px; color: #718096; margin-bottom: 12px;">Elegí por qué medios querés recibir información sobre tus bicicletas y pedidos:</p>
+          
+          <div class="config-checkbox">
+            <input type="checkbox" id="chk-whatsapp" checked>
+            <label for="chk-whatsapp">Avisarme por WhatsApp cuando mi bicicleta esté lista para retirar del taller.</label>
+          </div>
+
+          <div class="config-checkbox">
+            <input type="checkbox" id="chk-turnos" checked>
+            <label for="chk-turnos">Recordatorio 24 horas antes de mi turno agendado de mantenimiento.</label>
+          </div>
+
+          <div class="config-checkbox">
+            <input type="checkbox" id="chk-pedidos" checked>
+            <label for="chk-pedidos">Notificaciones por correo sobre el seguimiento de mis envíos y facturación.</label>
+          </div>
+
+          <div class="config-checkbox">
+            <input type="checkbox" id="chk-promos">
+            <label for="chk-promos">Promociones semanales y descuentos exclusivos del CicloClub.</label>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 4: DIRECCIÓN DE ENTREGA GUARDADA -->
+        <div class="bloque-config">
+          <h3>📍 Dirección de Entrega Principal</h3>
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+            <div class="campo">
+              <label for="conf-calle">Calle y Altura:</label>
+              <input type="text" id="conf-calle" class="input-config" value="Av. San Martín 750" required>
+            </div>
+            <div class="campo">
+              <label for="conf-piso">Piso / Depto (Opcional):</label>
+              <input type="text" id="conf-piso" class="input-config" value="Piso 4 - Dpto B">
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+            <div class="campo">
+              <label for="conf-ciudad">Ciudad:</label>
+              <input type="text" id="conf-ciudad" class="input-config" value="Neuquén Capital" required>
+            </div>
+            <div class="campo">
+              <label for="conf-cp">Código Postal:</label>
+              <input type="text" id="conf-cp" class="input-config" value="8300" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 5: MÉTODOS DE PAGO REGISTRADOS -->
+        <div class="bloque-config">
+          <h3>💳 Métodos de Pago Guardados</h3>
+          <div style="display: flex; align-items: center; justify-content: space-between; background-color: #faf8f3; border: 1.5px solid #95C1F5; padding: 12px 18px; border-radius: 8px; margin-bottom: 10px;">
+            <div>
+              <strong style="color: #142E54;">💳 Visa Crédito terminada en •••• 4242</strong>
+              <div style="font-size: 12px; color: #718096;">Vencimiento: 08/28 | Titular: Ivan Boufarah</div>
+            </div>
+            <span style="font-size: 12px; background-color: #e6fffa; color: #234e52; padding: 3px 8px; border-radius: 12px; font-weight: bold;">Predeterminada</span>
+          </div>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN PRINCIPAL -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 25px;">
+          <button type="submit" class="btn-accion" style="padding: 14px 28px; font-size: 16px;">
+            💾 Guardar Cambios
+          </button>
+
+          <a href="registro.html" class="btn-accion btn-peligro" onclick="return confirm('¿Seguro que querés cerrar sesión en CicloMiku?');">
+            🚪 Cerrar Sesión
+          </a>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <div id="pie">
+    <div class="pie-contenido">
+      <div class="pie-columna">
+        <h4>Ciclo Miku Store & Taller</h4>
+        <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Ubicación y Horarios</h4>
+        <p>📍 Av. Principal 1234, CABA</p>
+        <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Contacto</h4>
+        <p>📞 Teléfono: +54 11 234-5678</p>
+        <p>✉️ Email: soporte@ciclomiku.com</p>
+      </div>
+    </div>
+    
+    <div class="pie-creditos">
+      CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+    </div>
+  </div>
+
+<script>
+
+const botonUsuario = document.getElementById("btn-usuario");
+
+const menuUsuario = document.getElementById("menu-usuario");
+
+
+/* ABRIR Y CERRAR EL MENÚ */
+
+botonUsuario.addEventListener("click", function() {
+
+  if (menuUsuario.style.display === "block") {
+
+    menuUsuario.style.display = "none";
+
+  } else {
+
+    menuUsuario.style.display = "block";
+
+  }
+
+});
+
+
+/* CERRAR AL HACER CLIC AFUERA */
+
+document.addEventListener("click", function(event) {
+
+  if (!event.target.closest(".usuario-menu")) {
+
+    menuUsuario.style.display = "none";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

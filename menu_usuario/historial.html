@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - 📋 Historial de Compras y Turnos</title>
+  <meta name="description" content="Historial completo de pedidos y servicios de mantenimiento en CicloMiku.">
+  <link rel="stylesheet" href="../CSS/historial.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y BOTÓN DE USUARIO
+       ========================================================================== -->
+  <div id="cabecera">
+    <h1><a href="CicloMiku.html" style="color: #F2ECDC; text-decoration: none;">Ciclo <span>Miku</span></a></h1>
+    
+    <div id="navegacion">
+      <a href="CicloMiku.html">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </div>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="../menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="../menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="../menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="../menu_usuario/historial.html">📋 Historial</a>
+        <a href="../menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="../menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="../menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: HISTORIAL
+       ========================================================================== -->
+  <div class="contenedor-usuario">
+    
+    <!-- SUB-MENÚ DE NAVEGACIÓN -->
+
+    <!-- TARJETA CONTENEDORA -->
+    <div class="tarjeta-usuario">
+      <h2 class="titulo-seccion">📋 Historial de Pedidos y Turnos</h2>
+      <p class="subtitulo-seccion">Consultá tus compras realizadas y el estado de los mantenimientos en nuestro taller.</p>
+
+      <!-- BOTONES DE FILTRO -->
+      <div class="pestanas-historial">
+        <button type="button" class="btn-filtro-historial activo" onclick="filtrarHistorial('todos', this)">Todos (4)</button>
+        <button type="button" class="btn-filtro-historial" onclick="filtrarHistorial('compras', this)">📦 Compras Online (2)</button>
+        <button type="button" class="btn-filtro-historial" onclick="filtrarHistorial('taller', this)">🔧 Turnos de Taller (2)</button>
+      </div>
+
+      <!-- LISTA DE HISTORIAL -->
+      <div class="lista-historial" id="contenedor-historial">
+        
+        <!-- REGISTRO 1: COMPRA RECIENTE -->
+        <div class="tarjeta-registro-historial item-tipo-compras">
+          <div class="cabecera-registro">
+            <div>
+              <span class="id-registro">📦 Pedido #CM-PED-8942</span>
+              <div class="fecha-registro">Realizado el 28 de Agosto de 2026 a las 15:40 hs</div>
+            </div>
+            <div>
+              <span class="estado-badge estado-entregado">✓ Entregado en Domicilio</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px; align-items: center; margin: 10px 0; flex-wrap: wrap;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ16NyCSLKyWKzg27YN0Y8yfJ8xo66hy4GUYklaumhMk3l9SO69SUQHan8&s=10" alt="Trek Marlin 7" style="width: 70px; height: 70px; object-fit: cover; border-radius: 6px;">
+            <div style="flex: 1;">
+              <h4 style="font-size: 15px; color: #142E54;">Trek Marlin 7 Gen 3 (Color Azul / Cuadro L)</h4>
+              <p style="font-size: 13px; color: #718096;">Cantidad: 1 | Envío por Andreani Express</p>
+            </div>
+            <div style="font-size: 17px; font-weight: bold; color: #142E54;">
+              $520.000
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-top: 12px; border-top: 1px solid #edf2f7; padding-top: 10px; flex-wrap: wrap;">
+            <button type="button" class="btn-accion btn-secundario" onclick="alert('Descargando factura electrónica en PDF del pedido #CM-PED-8942...');">📄 Descargar Factura</button>
+            <button type="button" class="btn-accion" onclick="alert('Producto agregado al carrito.'); window.location.href='carrito.html';">🔁 Volver a Comprar</button>
+          </div>
+        </div>
+
+        <!-- REGISTRO 2: TURNO DE TALLER -->
+        <div class="tarjeta-registro-historial item-tipo-taller">
+          <div class="cabecera-registro">
+            <div>
+              <span class="id-registro">🔧 Turno Taller #CM-TUR-1054</span>
+              <div class="fecha-registro">Turno atendido el 15 de Agosto de 2026 - Taller Central</div>
+            </div>
+            <div>
+              <span class="estado-badge estado-taller">🔧 Service Oficial Completado</span>
+            </div>
+          </div>
+          
+          <div style="margin: 10px 0;">
+            <div style="font-weight: bold; color: #142E54; font-size: 15px;">Bicicleta: Specialized Demo 7 (Descenso)</div>
+            <p style="font-size: 13px; color: #2A467A; margin-top: 4px;">
+              <strong>Trabajos realizados:</strong> Mantenimiento General Premium, purgado de frenos hidráulicos Shimano Saint de 4 pistones, lubricación de suspensión Fox 180mm y centrado de ruedas.
+            </p>
+            <div style="font-size: 13px; color: #718096; margin-top: 4px;">Mecánico asignado: Martín Gómez (Jefe de Taller CicloMiku)</div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #edf2f7; padding-top: 10px; flex-wrap: wrap; gap: 10px;">
+            <div style="font-size: 16px; font-weight: bold; color: #142E54;">Costo del servicio: $45.000</div>
+            <button type="button" class="btn-accion btn-secundario" onclick="alert('Abriendo ficha técnica y diagnóstico del service #CM-TUR-1054...');">
+              📋 Ver Ficha Mecánica
+            </button>
+          </div>
+        </div>
+
+        <!-- REGISTRO 3: COMPRA DE ACCESORIOS -->
+        <div class="tarjeta-registro-historial item-tipo-compras">
+          <div class="cabecera-registro">
+            <div>
+              <span class="id-registro">📦 Pedido #CM-PED-7321</span>
+              <div class="fecha-registro">Realizado el 02 de Julio de 2026 a las 11:15 hs</div>
+            </div>
+            <div>
+              <span class="estado-badge estado-entregado">✓ Entregado</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px; align-items: center; margin: 10px 0; flex-wrap: wrap;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1UlO6_X81B6t4Hxj6een3AYOM7_D92tnYAclQNjTC_DjBQXho8x1to6D&s=10" alt="Luz LED" style="width: 70px; height: 70px; object-fit: cover; border-radius: 6px;">
+            <div style="flex: 1;">
+              <h4 style="font-size: 15px; color: #142E54;">Luz LED Recargable + Candado OnGuard U-Lock</h4>
+              <p style="font-size: 13px; color: #718096;">2 productos | Pago con Tarjeta en 3 cuotas</p>
+            </div>
+            <div style="font-size: 17px; font-weight: bold; color: #142E54;">
+              $62.000
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-top: 12px; border-top: 1px solid #edf2f7; padding-top: 10px;">
+            <button type="button" class="btn-accion btn-secundario" onclick="alert('Descargando factura...');">📄 Descargar Factura</button>
+          </div>
+        </div>
+
+        <!-- REGISTRO 4: TURNO DE TALLER ANTERIOR -->
+        <div class="tarjeta-registro-historial item-tipo-taller">
+          <div class="cabecera-registro">
+            <div>
+              <span class="id-registro">🔧 Turno Taller #CM-TUR-0891</span>
+              <div class="fecha-registro">Turno atendido el 10 de Mayo de 2026 - Taller Central</div>
+            </div>
+            <div>
+              <span class="estado-badge estado-taller">🔧 Service Oficial Completado</span>
+            </div>
+          </div>
+          
+          <div style="margin: 10px 0;">
+            <div style="font-weight: bold; color: #142E54; font-size: 15px;">Bicicleta: Giant Talon 1 29er</div>
+            <p style="font-size: 13px; color: #2A467A; margin-top: 4px;">
+              <strong>Trabajos realizados:</strong> Regulación y calibración de transmisión Shimano Deore 1x10, cambio de cadena y limpieza ultrasónica de piñones.
+            </p>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #edf2f7; padding-top: 10px; flex-wrap: wrap; gap: 10px;">
+            <div style="font-size: 16px; font-weight: bold; color: #142E54;">Costo del servicio: $22.000</div>
+            <button type="button" class="btn-accion btn-secundario" onclick="alert('Abriendo ficha técnica...');">
+              📋 Ver Ficha Mecánica
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <div id="pie">
+    <div class="pie-contenido">
+      <div class="pie-columna">
+        <h4>Ciclo Miku Store & Taller</h4>
+        <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Ubicación y Horarios</h4>
+        <p>📍 Av. Principal 1234, CABA</p>
+        <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Contacto</h4>
+        <p>📞 Teléfono: +54 11 234-5678</p>
+        <p>✉️ Email: soporte@ciclomiku.com</p>
+      </div>
+    </div>
+    
+    <div class="pie-creditos">
+      CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+    </div>
+  </div>
+
+  <script>
+const botonUsuario = document.getElementById("btn-usuario");
+
+const menuUsuario = document.getElementById("menu-usuario");
+
+
+/* ABRIR Y CERRAR EL MENÚ */
+
+botonUsuario.addEventListener("click", function() {
+
+  if (menuUsuario.style.display === "block") {
+
+    menuUsuario.style.display = "none";
+
+  } else {
+
+    menuUsuario.style.display = "block";
+
+  }
+
+});
+
+
+/* CERRAR AL HACER CLIC AFUERA */
+
+document.addEventListener("click", function(event) {
+
+  if (!event.target.closest(".usuario-menu")) {
+
+    menuUsuario.style.display = "none";
+
+  }
+
+});
+
+    function filtrarHistorial(tipo, boton) {
+      const botones = document.querySelectorAll('.btn-filtro-historial');
+      botones.forEach(b => b.classList.remove('activo'));
+      boton.classList.add('activo');
+
+      const itemsCompras = document.querySelectorAll('.item-tipo-compras');
+      const itemsTaller = document.querySelectorAll('.item-tipo-taller');
+
+      if (tipo === 'todos') {
+        itemsCompras.forEach(i => i.style.display = 'block');
+        itemsTaller.forEach(i => i.style.display = 'block');
+      } else if (tipo === 'compras') {
+        itemsCompras.forEach(i => i.style.display = 'block');
+        itemsTaller.forEach(i => i.style.display = 'none');
+      } else if (tipo === 'taller') {
+        itemsCompras.forEach(i => i.style.display = 'none');
+        itemsTaller.forEach(i => i.style.display = 'block');
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - 🔔 Centro de Notificaciones</title>
+  <meta name="description" content="Centro de avisos y notificaciones de pedidos y taller en CicloMiku.">
+  <link rel="stylesheet" href="../CSS/notificaciones.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y BOTÓN DE USUARIO
+       ========================================================================== -->
+  <div id="cabecera">
+    <h1><a href="CicloMiku.html" style="color: #F2ECDC; text-decoration: none;">Ciclo <span>Miku</span></a></h1>
+    
+    <div id="navegacion">
+      <a href="CicloMiku.html">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </div>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="../menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="../menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="../menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="../menu_usuario/historial.html">📋 Historial</a>
+        <a href="../menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="../menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="../menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: NOTIFICACIONES
+       ========================================================================== -->
+  <div class="contenedor-usuario">
+    
+
+    <!-- TARJETA CONTENEDORA -->
+    <div class="tarjeta-usuario">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #95C1F5; padding-bottom: 10px; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h2 style="font-size: 22px; color: #142E54;">🔔 Notificaciones y Avisos</h2>
+          <p style="font-size: 14px; color: #2A467A; margin-top: 4px;">Enterate del estado de tus bicicletas en el taller y novedades de tus compras.</p>
+        </div>
+        <div>
+          <button type="button" class="btn-accion btn-secundario" onclick="marcarTodasLeidas()">
+            ✓ Marcar todas como leídas
+          </button>
+        </div>
+      </div>
+
+      <!-- LISTA DE NOTIFICACIONES -->
+      <div class="lista-notificaciones" id="contenedor-notifs">
+        
+        <!-- NOTIFICACIÓN 1 (NO LEÍDA - TALLER) -->
+        <div class="item-notificacion no-leida" id="notif-1">
+          <div class="icono-notif">🔧</div>
+          <div class="contenido-notif">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h4>¡Tu bicicleta Specialized Demo 7 ya está lista!</h4>
+              <span style="font-size: 11px; background-color: #142E54; color: #F2ECDC; padding: 2px 8px; border-radius: 10px; font-weight: bold;">Nueva</span>
+            </div>
+            <p>El servicio de mantenimiento general y purga de frenos de 4 pistones ha finalizado con éxito. Podés pasar a retirarla por nuestro taller de Av. Principal 1234 de 09:00 a 18:00 hs.</p>
+            <div class="fecha-notif">Hace 2 horas | Taller Técnico Oficial</div>
+          </div>
+          <button type="button" style="background: none; border: none; cursor: pointer; color: #718096;" title="Eliminar" onclick="eliminarNotif('notif-1')">✕</button>
+        </div>
+
+        <!-- NOTIFICACIÓN 2 (NO LEÍDA - ENVÍO) -->
+        <div class="item-notificacion no-leida" id="notif-2">
+          <div class="icono-notif">📦</div>
+          <div class="contenido-notif">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h4>Tu pedido #CM-PED-8942 fue entregado</h4>
+              <span style="font-size: 11px; background-color: #142E54; color: #F2ECDC; padding: 2px 8px; border-radius: 10px; font-weight: bold;">Nueva</span>
+            </div>
+            <p>La empresa de transporte Andreani confirmó la entrega de tu bicicleta Trek Marlin 7 Gen 3 en tu domicilio de Neuquén Capital. ¡Esperamos que disfrutes tu rodada!</p>
+            <div class="fecha-notif">Ayer a las 15:40 hs | Envíos CicloMiku</div>
+          </div>
+          <button type="button" style="background: none; border: none; cursor: pointer; color: #718096;" title="Eliminar" onclick="eliminarNotif('notif-2')">✕</button>
+        </div>
+
+        <!-- NOTIFICACIÓN 3 (LEÍDA - PROMOCIÓN) -->
+        <div class="item-notificacion" id="notif-3">
+          <div class="icono-notif">🏷️</div>
+          <div class="contenido-notif">
+            <h4>Beneficio CicloClub Oro: 15% OFF en Cubiertas Maxxis</h4>
+            <p>Por ser cliente de nivel Oro, tenés un 15% de descuento adicional en cubiertas tubeless y cámaras para tu próxima aventura de montaña.</p>
+            <div class="fecha-notif">Hace 3 días | Promociones Exclusivas</div>
+          </div>
+          <button type="button" style="background: none; border: none; cursor: pointer; color: #718096;" title="Eliminar" onclick="eliminarNotif('notif-3')">✕</button>
+        </div>
+
+        <!-- NOTIFICACIÓN 4 (LEÍDA - RECORDATORIO) -->
+        <div class="item-notificacion" id="notif-4">
+          <div class="icono-notif">📅</div>
+          <div class="contenido-notif">
+            <h4>Confirmación de turno para service técnico</h4>
+            <p>Tu turno para el día 15 de Agosto a las 10:30 hs para la bicicleta Specialized Demo 7 quedó agendado con el mecánico Martín Gómez.</p>
+            <div class="fecha-notif">Hace 3 semanas | Sistema de Turnos</div>
+          </div>
+          <button type="button" style="background: none; border: none; cursor: pointer; color: #718096;" title="Eliminar" onclick="eliminarNotif('notif-4')">✕</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <div id="pie">
+    <div class="pie-contenido">
+      <div class="pie-columna">
+        <h4>Ciclo Miku Store & Taller</h4>
+        <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Ubicación y Horarios</h4>
+        <p>📍 Av. Principal 1234, CABA</p>
+        <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Contacto</h4>
+        <p>📞 Teléfono: +54 11 234-5678</p>
+        <p>✉️ Email: soporte@ciclomiku.com</p>
+      </div>
+    </div>
+    
+    <div class="pie-creditos">
+      CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+    </div>
+  </div>
+
+  <script>
+const botonUsuario = document.getElementById("btn-usuario");
+
+const menuUsuario = document.getElementById("menu-usuario");
+
+
+/* ABRIR Y CERRAR EL MENÚ */
+
+botonUsuario.addEventListener("click", function() {
+
+  if (menuUsuario.style.display === "block") {
+
+    menuUsuario.style.display = "none";
+
+  } else {
+
+    menuUsuario.style.display = "block";
+
+  }
+
+});
+
+
+/* CERRAR AL HACER CLIC AFUERA */
+
+document.addEventListener("click", function(event) {
+
+  if (!event.target.closest(".usuario-menu")) {
+
+    menuUsuario.style.display = "none";
+
+  }
+
+});
+
+    function marcarTodasLeidas() {
+      const items = document.querySelectorAll('.item-notificacion.no-leida');
+      items.forEach(item => {
+        item.classList.remove('no-leida');
+        const badge = item.querySelector('span');
+        if (badge) badge.remove();
+      });
+      document.getElementById('badge-notifs').textContent = '0';
+      alert('¡Todas las notificaciones fueron marcadas como leídas!');
+    }
+
+    function eliminarNotif(id) {
+      const item = document.getElementById(id);
+      if (item) {
+        item.remove();
+        actualizarContadorNotifs();
+      }
+    }
+
+    function actualizarContadorNotifs() {
+      const pendientes = document.querySelectorAll('.item-notificacion.no-leida').length;
+      document.getElementById('badge-notifs').textContent = pendientes;
+    }
+  </script>
+
+</body>
+</html>

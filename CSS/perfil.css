@@ -1,0 +1,377 @@
+/* ==========================================================================
+   PERFIL.CSS - HOJA DE ESTILOS PARA MI PERFIL (CICLOMIKU)
+   Paleta oficial:
+   - Fondo general: #F2ECDC
+   - Azul Marino Principal: #142E54
+   - Azul Secundario: #2A467A
+   - Celeste de Acento y Bordes: #95C1F5
+   - Fondo de Tarjeta: #FFFFFF
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #F2ECDC;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   1. CABECERA Y NAVEGACIÓN
+   ========================================================================== */
+#cabecera {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #95C1F5;
+}
+
+#cabecera h1 {
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+
+#cabecera h1 a {
+  color: #F2ECDC;
+  text-decoration: none;
+}
+
+#cabecera h1 span {
+  color: #95C1F5;
+}
+
+#navegacion {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#navegacion a {
+  color: #F2ECDC;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: #2A467A;
+  transition: 0.2s;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#navegacion a:hover,
+#navegacion a.activo {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+#btn-usuario {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #95C1F5;
+  background-color: #2A467A;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+#menu-usuario {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px;
+
+  width: 220px;
+
+  background-color: white;
+
+  border: 2px solid #95C1F5;
+  border-radius: 8px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  z-index: 1000;
+}
+
+#menu-usuario a {
+  display: block;
+
+  padding: 12px 15px;
+
+  color: #2A467A;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+#menu-usuario a:hover {
+  background-color: #F2ECDC;
+}
+
+.usuario-tag {
+  background-color: #2A467A;
+  color: #F2ECDC;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid #95C1F5;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   2. CONTENEDOR Y SUB-MENÚ DE PESTAÑAS DE USUARIO
+   ========================================================================== */
+.usuario-menu {
+  position: relative;
+}
+
+
+/* BOTÓN DEL USUARIO */
+
+#btn-usuario {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #95C1F5;
+  background-color: #2A467A;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+#menu-usuario {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px;
+
+  width: 220px;
+
+  background-color: white;
+
+  border: 2px solid #95C1F5;
+  border-radius: 8px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  z-index: 1000;
+}
+
+#menu-usuario a {
+  display: block;
+
+  padding: 12px 15px;
+
+  color: #2A467A;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+#menu-usuario a:hover {
+  background-color: #F2ECDC;
+}
+
+/* ==========================================================================
+   3. TARJETA PRINCIPAL DEL PERFIL
+   ========================================================================== */
+.tarjeta-usuario {
+  background-color: #FFFFFF;
+  border: 2px solid #95C1F5;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(20, 46, 84, 0.08);
+  margin-bottom: 25px;
+}
+
+.perfil-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.perfil-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #95C1F5;
+  background-color: #142E54;
+  color: #F2ECDC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.perfil-info-principal h2 {
+  font-size: 26px;
+  color: #142E54;
+  margin-bottom: 4px;
+}
+
+.perfil-info-principal p {
+  color: #2A467A;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.rango-socio {
+  display: inline-block;
+  background-color: #eaf2fd;
+  color: #142E54;
+  border: 1.5px solid #95C1F5;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   4. GRILLA Y CAJAS DE DATOS DE PERFIL
+   ========================================================================== */
+.grilla-perfil {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.caja-datos {
+  background-color: #faf8f3;
+  border: 1.5px solid #95C1F5;
+  border-radius: 10px;
+  padding: 22px;
+}
+
+.caja-datos h3 {
+  font-size: 18px;
+  color: #142E54;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #95C1F5;
+  padding-bottom: 8px;
+}
+
+.item-dato {
+  margin-bottom: 12px;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-dato strong {
+  color: #142E54;
+  width: 150px;
+}
+
+.item-dato span {
+  color: #2A467A;
+  font-weight: 500;
+}
+
+.btn-accion {
+  padding: 12px 20px;
+  background-color: #2A467A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-accion:hover {
+  background-color: #142E54;
+}
+
+/* ==========================================================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+#pie {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 20px 25px;
+  margin-top: auto;
+  border-top: 4px solid #95C1F5;
+}
+
+.pie-contenido {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.pie-columna h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #95C1F5;
+}
+
+.pie-columna p {
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.pie-creditos {
+  text-align: center;
+  font-size: 12px;
+  color: #a0aec0;
+  border-top: 1px solid #2A467A;
+  padding-top: 10px;
+}
+
+/* ==========================================================================
+   6. RESPONSIVO
+   ========================================================================== */
+@media (max-width: 768px) {
+  #cabecera {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .menu-usuario {
+    flex-direction: column;
+  }
+
+  .menu-usuario a {
+    width: 100%;
+  }
+
+  .grilla-perfil {
+    grid-template-columns: 1fr;
+  }
+}

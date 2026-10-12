@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - Iniciar Sesión y Registro</title>
+  <meta name="description" content="Iniciá sesión o creá tu cuenta en CicloMiku para gestionar tus pedidos y turnos de taller.">
+  <link rel="stylesheet" href="registro.css">
+  <link rel="stylesheet" href="../CSS/registro.css">
+</head>
+<body>
+
+  <div id="cabecera">
+    <h1>Ciclo <span>Miku</span></h1>
+  </div>
+
+  <div id="menu">
+    <div id="registro">
+      
+      <!-- Pestañas para alternar entre Iniciar Sesión y Crear Cuenta -->
+      <div class="pestanas-auth">
+        <button type="button" id="tab-login" class="pestana-activa">Iniciar Sesión</button>
+        <button type="button" id="tab-registro">Crear Cuenta</button>
+      </div>
+
+      <!-- Notificación dinámica al enviar formulario -->
+      <div id="alerta" class="alerta-mensaje"></div>
+
+
+      <form id="form-login" action="#" method="post">
+        <h3>Bienvenido a CicloMiku</h3>
+        <p class="subtitulo-form">Ingresá con tu correo y contraseña</p>
+
+        <div class="campo">
+          <label for="login-correo">Correo electrónico:</label>
+          <input type="email" id="login-correo" name="correo" placeholder="ejemplo@correo.com" required>
+        </div>
+
+
+        <div class="campo">
+          <label for="login-contrasena">Contraseña:</label>
+          <div class="input-con-boton">
+            <input type="password" id="login-contrasena" name="contrasena" placeholder="Tu contraseña" required>
+            <button type="button" id="toggleBtnLogin" class="btn-mostrar">Mostrar</button>
+          </div>
+        </div>
+
+        <div class="fila-recordar">
+          <div class="campo-checkbox">
+            <input type="checkbox" id="recordarme" name="recordarme">
+            <label for="recordarme">Recordar mi sesión</label>
+          </div>
+          <a href="#" class="enlace-olvido" onclick="alert('Te enviaremos un correo para restablecer tu contraseña.'); return false;">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn-principal">Iniciar Sesión</button>
+
+        <p class="pie-formulario">
+          ¿Aún no tenés cuenta? <a id="ir-a-registro">Crear cuenta nueva</a>
+        </p>
+      </form>
+
+      <form id="form-registro" action="#" method="post" style="display: none;">
+        <h3>Crea tu cuenta</h3>
+        <p class="subtitulo-form">Completá tus datos para comprar y agendar turnos</p>
+
+        <div class="campo">
+          <label for="nombre">Nombre y Apellido:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+54 9 299 123-4567">
+        </div>
+
+        <div class="campo">
+          <label for="contrasena">Contraseña:</label>
+          <div class="input-con-boton">
+            <input type="password" id="contrasena" name="contrasena" placeholder="contr@seña215" required>
+            <button type="button" id="toggleBtn" class="btn-mostrar">Mostrar</button>
+          </div>
+        </div>
+
+        <div class="campo-checkbox">
+          <input type="checkbox" name="ter1" id="ter1">
+          <label for="ter1">Acepto que me contacten por SMS y WhatsApp sobre mis turnos y pedidos.</label>
+        </div>
+
+        <div class="campo-checkbox">
+          <input type="checkbox" name="ter2" id="ter2" required>
+          <label for="ter2">
+            Acepto los <a href="https://www.mercadolibre.com.ar/ayuda/terminos-y-condiciones-de-uso_991" target="_blank" rel="noopener noreferrer">Términos y condiciones</a> y autorizo el uso de mis datos de acuerdo a la <a href="https://www.mercadolibre.com.ar/privacidad/declaracion-privacidad" target="_blank" rel="noopener noreferrer">Declaración de privacidad</a>.
+          </label>
+        </div>
+
+        <!-- Botón Crear Cuenta -->
+        <button type="submit" class="btn-principal Crear">Crear Cuenta</button>
+
+        <p class="pie-formulario">
+          ¿Ya tenés una cuenta? <a id="ir-a-login">Iniciá sesión acá</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+
+
+
+
+  <script>
+    // Referencias a los elementos
+    const tabLogin = document.getElementById('tab-login');
+    const tabRegistro = document.getElementById('tab-registro');
+    const formLogin = document.getElementById('form-login');
+    const formRegistro = document.getElementById('form-registro');
+    const irARegistro = document.getElementById('ir-a-registro');
+    const irALogin = document.getElementById('ir-a-login');
+    const alerta = document.getElementById('alerta');
+
+    // Función para mostrar la vista de Iniciar Sesión
+    function mostrarLogin() {
+      formLogin.style.display = 'flex';
+      formRegistro.style.display = 'none';
+      tabLogin.classList.add('pestana-activa');
+      tabRegistro.classList.remove('pestana-activa');
+      alerta.style.display = 'none';
+    }
+
+    // Función para mostrar la vista de Crear Cuenta (Registro)
+    function mostrarRegistro() {
+      formLogin.style.display = 'none';
+      formRegistro.style.display = 'flex';
+      tabRegistro.classList.add('pestana-activa');
+      tabLogin.classList.remove('pestana-activa');
+      alerta.style.display = 'none';
+    }
+
+    // Eventos al hacer click en las pestañas o enlaces
+    tabLogin.addEventListener('click', mostrarLogin);
+    tabRegistro.addEventListener('click', mostrarRegistro);
+    irARegistro.addEventListener('click', mostrarRegistro);
+    irALogin.addEventListener('click', mostrarLogin);
+
+    // Botón Mostrar/Ocultar contraseña en el formulario de Registro
+    const toggleBtn = document.getElementById('toggleBtn');
+    const contrasena = document.getElementById('contrasena');
+    toggleBtn.addEventListener('click', function() {
+      if (contrasena.type === 'password') {
+        contrasena.type = 'text';
+        toggleBtn.textContent = 'Ocultar';
+      } else {
+        contrasena.type = 'password';
+        toggleBtn.textContent = 'Mostrar';
+      }
+    });
+
+    // Botón Mostrar/Ocultar contraseña en el formulario de Iniciar Sesión
+    const toggleBtnLogin = document.getElementById('toggleBtnLogin');
+    const loginContrasena = document.getElementById('login-contrasena');
+    toggleBtnLogin.addEventListener('click', function() {
+      if (loginContrasena.type === 'password') {
+        loginContrasena.type = 'text';
+        toggleBtnLogin.textContent = 'Ocultar';
+      } else {
+        loginContrasena.type = 'password';
+        toggleBtnLogin.textContent = 'Mostrar';
+      }
+    });
+
+    // Envío del formulario de Iniciar Sesión
+    formLogin.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const correo = document.getElementById('login-correo').value;
+      alerta.textContent = '¡Bienvenido! Iniciaste sesión correctamente con ' + correo;
+      alerta.style.display = 'block';
+      alerta.style.backgroundColor = '#eaf2fd';
+      alerta.style.color = '#142E54';
+    });
+
+    // Envío del formulario de Registro
+    formRegistro.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      alerta.textContent = '¡Cuenta creada con éxito para ' + nombre + '! Ya podés iniciar sesión.';
+      alerta.style.display = 'block';
+      alerta.style.backgroundColor = '#e6fffa';
+      alerta.style.color = '#142E54';
+      formRegistro.reset();
+      setTimeout(function() {
+        mostrarLogin();
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>

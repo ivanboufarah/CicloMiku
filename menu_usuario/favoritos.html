@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - ❤️ Mis Favoritos</title>
+  <meta name="description" content="Tus bicicletas y accesorios guardados en favoritos en CicloMiku.">
+  <link rel="stylesheet" href="../CSS/favoritos.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y BOTÓN DE USUARIO
+       ========================================================================== -->
+  <div id="cabecera">
+    <h1><a href="CicloMiku.html" style="color: #F2ECDC; text-decoration: none;">Ciclo <span>Miku</span></a></h1>
+    
+    <div id="navegacion">
+      <a href="CicloMiku.html">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </div>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="../menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="../menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="../menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="../menu_usuario/historial.html">📋 Historial</a>
+        <a href="../menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="../menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="../menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: FAVORITOS
+       ========================================================================== -->
+  <div class="contenedor-usuario">
+
+    <!-- TARJETA CONTENEDORA -->
+    <div class="tarjeta-usuario">
+      <h2 class="titulo-seccion">❤️ Artículos Favoritos</h2>
+      <p class="subtitulo-seccion">Bicicletas y accesorios que guardaste para comprar más tarde.</p>
+
+      <!-- GRILLA DE FAVORITOS -->
+      <div class="grilla-favoritos" id="grilla-favs">
+        
+        <!-- Favorito 1 -->
+        <div class="tarjeta-favorito" id="fav-1">
+          <button type="button" class="btn-quitar-fav" title="Quitar de favoritos" onclick="quitarFavorito('fav-1')">✕</button>
+          <img src="https://assets.specialized.com/i/specialized/5719?$scom-pdp-product-image-xl$&fmt=webp" alt="Specialized Demo 7">
+          <span style="display:inline-block; font-size:11px; font-weight:bold; color:#142E54; background-color:#eaf2fd; padding:3px 8px; border-radius:4px; margin-bottom:6px;">MTB / Descenso</span>
+          <h4 style="font-size:16px; color:#142E54; margin-bottom:6px;">Specialized Demo 7</h4>
+          <p style="font-size:13px; color:#2A467A; margin-bottom:8px;">Cuadro reforzado de aluminio, suspensión Fox 180mm y frenos de 4 pistones.</p>
+          <div style="font-size:18px; font-weight:bold; color:#142E54; margin-bottom:10px;">$450.000</div>
+          <button type="button" class="btn-accion" style="width: 100%;" onclick="alert('¡Specialized Demo 7 agregada a tu carrito!');">
+            🛒 Mover al Carrito
+          </button>
+        </div>
+
+        <!-- Favorito 2 -->
+        <div class="tarjeta-favorito" id="fav-2">
+          <button type="button" class="btn-quitar-fav" title="Quitar de favoritos" onclick="quitarFavorito('fav-2')">✕</button>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfWw5r40XNNS3xnzC94kJ7d-G9c9o5gix_4gSf0jYRcQ&s=10" alt="Casco Bell 4Forty">
+          <span style="display:inline-block; font-size:11px; font-weight:bold; color:#142E54; background-color:#eaf2fd; padding:3px 8px; border-radius:4px; margin-bottom:6px;">Seguridad / Cascos</span>
+          <h4 style="font-size:16px; color:#142E54; margin-bottom:6px;">Casco Fox Proframe Enduro MIPS</h4>
+          <p style="font-size:13px; color:#2A467A; margin-bottom:8px;">Integral ultraliviano con ventilación máxima y protección contra impactos rotacionales.</p>
+          <div style="font-size:18px; font-weight:bold; color:#142E54; margin-bottom:10px;">$85.000</div>
+          <button type="button" class="btn-accion" style="width: 100%;" onclick="alert('¡Casco Fox agregado a tu carrito!');">
+            🛒 Mover al Carrito
+          </button>
+        </div>
+
+        <!-- Favorito 3 -->
+        <div class="tarjeta-favorito" id="fav-3">
+          <button type="button" class="btn-quitar-fav" title="Quitar de favoritos" onclick="quitarFavorito('fav-3')">✕</button>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1UlO6_X81B6t4Hxj6een3AYOM7_D92tnYAclQNjTC_DjBQXho8x1to6D&s=10">
+          <span style="display:inline-block; font-size:11px; font-weight:bold; color:#142E54; background-color:#eaf2fd; padding:3px 8px; border-radius:4px; margin-bottom:6px;">Luces / Iluminación</span>
+          <h4 style="font-size:16px; color:#142E54; margin-bottom:6px;">Luz LED Recargable 1200 Lumens</h4>
+          <p style="font-size:13px; color:#2A467A; margin-bottom:8px;">Batería de 4000mAh, resistencia al agua IPX6 y 5 modos de iluminación.</p>
+          <div style="font-size:18px; font-weight:bold; color:#142E54; margin-bottom:10px;">$28.000</div>
+          <button type="button" class="btn-accion" style="width: 100%;" onclick="alert('¡Luz LED agregada a tu carrito!');">
+            🛒 Mover al Carrito
+          </button>
+        </div>
+
+        <!-- Favorito 4 -->
+        <div class="tarjeta-favorito" id="fav-4">
+          <button type="button" class="btn-quitar-fav" title="Quitar de favoritos" onclick="quitarFavorito('fav-4')">✕</button>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ16NyCSLKyWKzg27YN0Y8yfJ8xo66hy4GUYklaumhMk3l9SO69SUQHan8&s=10" alt="Trek Marlin 7">
+          <span style="display:inline-block; font-size:11px; font-weight:bold; color:#142E54; background-color:#eaf2fd; padding:3px 8px; border-radius:4px; margin-bottom:6px;">Mountain Bike</span>
+          <h4 style="font-size:16px; color:#142E54; margin-bottom:6px;">Trek Marlin 7 Gen 3</h4>
+          <p style="font-size:13px; color:#2A467A; margin-bottom:8px;">Transmisión Shimano Deore 1x10, frenos hidráulicos y horquilla RockShox Judy.</p>
+          <div style="font-size:18px; font-weight:bold; color:#142E54; margin-bottom:10px;">$520.000</div>
+          <button type="button" class="btn-accion" style="width: 100%;" onclick="alert('¡Trek Marlin 7 agregada a tu carrito!');">
+            🛒 Mover al Carrito
+          </button>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 25px; text-align: center;">
+        <a href="CicloMiku.html" class="btn-accion btn-secundario">← Seguir Explorando el Catálogo</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <div id="pie">
+    <div class="pie-contenido">
+      <div class="pie-columna">
+        <h4>Ciclo Miku Store & Taller</h4>
+        <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Ubicación y Horarios</h4>
+        <p>📍 Av. Principal 1234, CABA</p>
+        <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Contacto</h4>
+        <p>📞 Teléfono: +54 11 234-5678</p>
+        <p>✉️ Email: soporte@ciclomiku.com</p>
+      </div>
+    </div>
+    
+    <div class="pie-creditos">
+      CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+    </div>
+  </div>
+
+  <script>
+   const botonUsuario = document.getElementById("btn-usuario");
+
+const menuUsuario = document.getElementById("menu-usuario");
+
+
+/* ABRIR Y CERRAR EL MENÚ */
+
+botonUsuario.addEventListener("click", function() {
+
+  if (menuUsuario.style.display === "block") {
+
+    menuUsuario.style.display = "none";
+
+  } else {
+
+    menuUsuario.style.display = "block";
+
+  }
+
+});
+
+
+/* CERRAR AL HACER CLIC AFUERA */
+
+document.addEventListener("click", function(event) {
+
+  if (!event.target.closest(".usuario-menu")) {
+
+    menuUsuario.style.display = "none";
+
+  }
+
+});
+
+    let cantidadFavs = 4;
+    function quitarFavorito(id) {
+      const elemento = document.getElementById(id);
+      if (elemento) {
+        elemento.remove();
+        cantidadFavs--;
+        document.getElementById('contador-favs').textContent = cantidadFavs;
+        if (cantidadFavs === 0) {
+          document.getElementById('grilla-favs').innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; background-color: #faf8f3; border: 2px dashed #95C1F5; border-radius: 8px;">
+              <div style="font-size: 40px; margin-bottom: 10px;">❤️</div>
+              <h3 style="color: #142E54; margin-bottom: 8px;">No tenés productos en favoritos</h3>
+              <p style="color: #2A467A; margin-bottom: 15px;">Explorá nuestro catálogo y guardá las bicicletas y accesorios que te gusten.</p>
+              <a href="CicloMiku.html" class="btn-accion">Ver Bicicletas</a>
+            </div>
+          `;
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

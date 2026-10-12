@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - 🛒 Mi Carrito de Compras</title>
+  <meta name="description" content="Carrito de compras con tus productos seleccionados en CicloMiku.">
+  <link rel="stylesheet" href="CSS/CicloMiku.css">
+  <link rel="stylesheet" href="CSS/carrito.css">
+  <link rel="stylesheet" href="../CSS/carrito.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y BOTÓN DE USUARIO
+       ========================================================================== -->
+  <div id="cabecera">
+    <h1><a href="CicloMiku.html" style="color: #F2ECDC; text-decoration: none;">Ciclo <span>Miku</span></a></h1>
+    
+    <div id="navegacion">
+      <a href="CicloMiku.html">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </div>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="../menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="../menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="../menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="../menu_usuario/historial.html">📋 Historial</a>
+        <a href="../menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="../menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="../menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: CARRITO DE COMPRAS
+       ========================================================================== -->
+  <div class="contenedor-usuario">
+    
+
+    <!-- TARJETA CONTENEDORA -->
+    <div class="tarjeta-usuario">
+      <h2 class="titulo-seccion">🛒 Carrito de Compras</h2>
+      <p class="subtitulo-seccion">Revisá tus productos antes de finalizar la compra.</p>
+
+      <div class="layout-carrito">
+        
+        <!-- COLUMNA IZQUIERDA: LISTA DE PRODUCTOS -->
+        <div class="tabla-carrito" id="contenedor-items-carrito">
+          
+          <!-- ITEM 1 -->
+          <div class="item-carrito" id="item-cart-1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfWw5r40XNNS3xnzC94kJ7d-G9c9o5gix_4gSf0jYRcQ&s=10" alt="Casco Fox Proframe">
+            <div class="detalles-item">
+              <h4>Casco Fox Proframe Enduro MIPS</h4>
+              <p>Color: Negro Mate | Talle: L (58-61cm)</p>
+              <div class="control-cantidad">
+                <button type="button" class="btn-qty" onclick="modificarCantidad(1, -1)">-</button>
+                <span class="num-qty" id="qty-1">1</span>
+                <button type="button" class="btn-qty" onclick="modificarCantidad(1, 1)">+</button>
+              </div>
+              <button type="button" class="btn-eliminar-item" onclick="eliminarDelCarrito(1)">Eliminar</button>
+            </div>
+            <div class="precio-item" id="precio-1">$85.000</div>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="item-carrito" id="item-cart-2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1UlO6_X81B6t4Hxj6een3AYOM7_D92tnYAclQNjTC_DjBQXho8x1to6D&s=10" alt="Luz LED Delantera">
+            <div class="detalles-item">
+              <h4>Luz LED Delantera Recargable 1200LM</h4>
+              <p>Batería 4000mAh | Resistente al agua IPX6</p>
+              <div class="control-cantidad">
+                <button type="button" class="btn-qty" onclick="modificarCantidad(2, -1)">-</button>
+                <span class="num-qty" id="qty-2">1</span>
+                <button type="button" class="btn-qty" onclick="modificarCantidad(2, 1)">+</button>
+              </div>
+              <button type="button" class="btn-eliminar-item" onclick="eliminarDelCarrito(2)">Eliminar</button>
+            </div>
+            <div class="precio-item" id="precio-2">$28.000</div>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="item-carrito" id="item-cart-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsq_UQxmKmQ5jPb4FNkEVwWD4QL8AwmfNtLKq6WLZzWtax3PG_fgYWGgE&s=10" alt="Guantes Ciclismo">
+            <div class="detalles-item">
+              <h4>Guantes Giro DND Gel Antideslizantes</h4>
+              <p>Color: Azul Marino / Negro | Talle: M</p>
+              <div class="control-cantidad">
+                <button type="button" class="btn-qty" onclick="modificarCantidad(3, -1)">-</button>
+                <span class="num-qty" id="qty-3">1</span>
+                <button type="button" class="btn-qty" onclick="modificarCantidad(3, 1)">+</button>
+              </div>
+              <button type="button" class="btn-eliminar-item" onclick="eliminarDelCarrito(3)">Eliminar</button>
+            </div>
+            <div class="precio-item" id="precio-3">$18.500</div>
+          </div>
+
+          <div style="margin-top: 10px;">
+            <a href="../index.html" class="btn-accion btn-secundario">← Agregar más productos</a>
+          </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA: RESUMEN DE PAGO -->
+        <div class="resumen-pedido">
+          <h3>Resumen del Pedido</h3>
+          
+          <div class="linea-costo">
+            <span>Subtotal productos:</span>
+            <strong id="resumen-subtotal">$131.500</strong>
+          </div>
+
+          <div class="linea-costo">
+            <span>Descuento Socio Oro (10%):</span>
+            <strong style="color: #2f855a;" id="resumen-descuento">-$13.150</strong>
+          </div>
+
+          <div class="linea-costo">
+            <span>Envío a domicilio:</span>
+            <strong style="color: #2f855a;">¡Gratis!</strong>
+          </div>
+
+          <!-- CUPÓN DE DESCUENTO -->
+          <div class="caja-cupon">
+            <input type="text" id="input-cupon" placeholder="Código de descuento">
+            <button type="button" onclick="aplicarCupon()">Aplicar</button>
+          </div>
+          <div id="mensaje-cupon" style="font-size: 12px; color: #2f855a; display: none; margin-bottom: 10px;">
+            ✓ Cupón <strong>CICLOMIKU2026</strong> aplicado con éxito.
+          </div>
+
+          <div class="linea-costo total">
+            <span>Total a pagar:</span>
+            <span id="resumen-total">$118.350</span>
+          </div>
+
+          <button type="button" class="btn-accion" style="width: 100%; margin-top: 15px; font-size: 16px;" onclick="confirmarCompra()">
+            ✅ Finalizar Compra
+          </button>
+
+          <div style="margin-top: 15px; text-align: center; font-size: 12px; color: #718096; line-height: 1.5;">
+            🔒 Compra 100% protegida con garantía oficial.<br>
+            Aceptamos tarjetas de crédito en hasta 12 cuotas fijas.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <div id="pie">
+    <div class="pie-contenido">
+      <div class="pie-columna">
+        <h4>Ciclo Miku Store & Taller</h4>
+        <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Ubicación y Horarios</h4>
+        <p>📍 Av. Principal 1234, CABA</p>
+        <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Contacto</h4>
+        <p>📞 Teléfono: +54 11 234-5678</p>
+        <p>✉️ Email: soporte@ciclomiku.com</p>
+      </div>
+    </div>
+    
+    <div class="pie-creditos">
+      CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+    </div>
+  </div>
+
+  <script>
+const botonUsuario = document.getElementById("btn-usuario");
+
+const menuUsuario = document.getElementById("menu-usuario");
+
+
+/* ABRIR Y CERRAR EL MENÚ */
+
+botonUsuario.addEventListener("click", function() {
+
+  if (menuUsuario.style.display === "block") {
+
+    menuUsuario.style.display = "none";
+
+  } else {
+
+    menuUsuario.style.display = "block";
+
+  }
+
+});
+
+
+/* CERRAR AL HACER CLIC AFUERA */
+
+document.addEventListener("click", function(event) {
+
+  if (!event.target.closest(".usuario-menu")) {
+
+    menuUsuario.style.display = "none";
+
+  }
+
+});
+
+    // Precios base por ítem
+    const preciosBase = {
+      1: 85000,
+      2: 28000,
+      3: 18500
+    };
+    const cantidades = {
+      1: 1,
+      2: 1,
+      3: 1
+    };
+
+    function actualizarTotales() {
+      let subtotal = 0;
+      let totalItems = 0;
+
+      for (const id in cantidades) {
+        if (cantidades[id] > 0) {
+          subtotal += preciosBase[id] * cantidades[id];
+          totalItems += cantidades[id];
+        }
+      }
+
+      const descuento = Math.round(subtotal * 0.10);
+      const total = subtotal - descuento;
+
+      document.getElementById('resumen-subtotal').textContent = '$' + subtotal.toLocaleString('es-AR');
+      document.getElementById('resumen-descuento').textContent = '-$' + descuento.toLocaleString('es-AR');
+      document.getElementById('resumen-total').textContent = '$' + total.toLocaleString('es-AR');
+      document.getElementById('cart-counter-badge').textContent = totalItems;
+
+      if (totalItems === 0) {
+        document.getElementById('contenedor-items-carrito').innerHTML = `
+          <div style="text-align: center; padding: 40px; background-color: #faf8f3; border: 2px dashed #95C1F5; border-radius: 8px;">
+            <div style="font-size: 40px; margin-bottom: 10px;">🛒</div>
+            <h3 style="color: #142E54; margin-bottom: 8px;">Tu carrito está vacío</h3>
+            <p style="color: #2A467A; margin-bottom: 15px;">Aún no agregaste productos. ¡Descubrí nuestras bicicletas y accesorios!</p>
+            <a href="CicloMiku.html" class="btn-accion">Ir al Catálogo de Bicis</a>
+          </div>
+        `;
+      }
+    }
+
+    function modificarCantidad(id, cambio) {
+      cantidades[id] += cambio;
+      if (cantidades[id] < 1) {
+        eliminarDelCarrito(id);
+        return;
+      }
+      document.getElementById('qty-' + id).textContent = cantidades[id];
+      document.getElementById('precio-' + id).textContent = '$' + (preciosBase[id] * cantidades[id]).toLocaleString('es-AR');
+      actualizarTotales();
+    }
+
+    function eliminarDelCarrito(id) {
+      const el = document.getElementById('item-cart-' + id);
+      if (el) {
+        el.remove();
+        cantidades[id] = 0;
+        actualizarTotales();
+      }
+    }
+
+    function aplicarCupon() {
+      const codigo = document.getElementById('input-cupon').value.trim().toUpperCase();
+      const mensaje = document.getElementById('mensaje-cupon');
+      if (codigo === 'CICLOMIKU' || codigo === 'MIKU10') {
+        mensaje.textContent = '✓ ¡Cupón ' + codigo + ' aplicado! 10% de descuento extra.';
+        mensaje.style.display = 'block';
+      } else {
+        alert('Ingresá el cupón CICLOMIKU para obtener un beneficio especial.');
+      }
+    }
+
+    function confirmarCompra() {
+      alert('¡Gracias por tu compra, Ivan! Te enviamos los detalles a ivanboufarah@gmail.com con el número de seguimiento.');
+      window.location.href = 'historial.html';
+    }
+  </script>
+
+</body>
+</html>

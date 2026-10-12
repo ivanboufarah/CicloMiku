@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku </title>
+  <meta name="description" content="Catálogo de bicicletas de ruta, mountain bike (MTB) y urbanas en CicloMiku.">
+  <link rel="stylesheet" href="CSS/CicloMiku.css">
+</head>
+<body>
+
+
+  <div id="cabecera">
+    <h1>Ciclo <span>Miku</span></h1>
+    
+    <div id="navegacion">
+      <a href="CicloMiku.html" class="activo">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </div>
+
+<div class="usuario-menu">
+
+  <button id="btn-usuario">
+    👤
+  </button>
+
+  <div id="menu-usuario">
+
+    <a href="menu_usuario/perfil.html">👤 Ver perfil</a>
+    <a href="menu_usuario/favoritos.html">❤️ Favoritos</a>
+    <a href="menu_usuario/carrito.html">🛒 Carrito</a>
+    <a href="menu_usuario/historial.html">📋 Historial</a>
+    <a href="menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+    <a href="menu_usuario/configuracion.html">⚙️ Configuración</a>
+    <a href="menu_usuario/registro.html">🚪 Iniciar sesión</a>
+
+  </div>
+
+</div>
+  </div>
+
+
+  <div id="menu">
+    
+    <div id="filtros">
+      <h3>Filtros</h3>
+      
+      <form action="#">
+        
+        <!-- Filtro por Gama -->
+        <div class="grupo-filtro">
+          <h4>Gama</h4>
+          <label><input type="checkbox" name="gama" value="alta" checked> Alta (Competición)</label>
+          <label><input type="checkbox" name="gama" value="media" checked> Media (Deportiva)</label>
+          <label><input type="checkbox" name="gama" value="baja"> Baja / Entrada</label>
+        </div>
+
+        <div class="grupo-filtro">
+          <h4>Tipo / Modelo</h4>
+          <label><input type="checkbox" name="modelo" value="mtb" checked> Mountain Bike (MTB)</label>
+          <label><input type="checkbox" name="modelo" value="ruta" checked> Ruta / Carrera</label>
+          <label><input type="checkbox" name="modelo" value="urbana"> Urbana / Paseo</label>
+          <label><input type="checkbox" name="modelo" value="gravel"> Gravel</label>
+        </div>
+
+        
+        <div class="grupo-filtro">
+          <h4>Marca</h4>
+          <label><input type="checkbox" name="marca" value="specialized" checked> Specialized</label>
+          <label><input type="checkbox" name="marca" value="giant" checked> Giant</label>
+          <label><input type="checkbox" name="marca" value="trek" checked> Trek</label>
+          <label><input type="checkbox" name="marca" value="scott"> Scott</label>
+        </div>
+
+       
+        <div class="filtro-precio">
+          <label for="precio">Precio máximo:</label>
+          <input type="range" id="precio" min="100000" max="1000000" value="500000">
+          <div class="precios-rango">
+            <span>$100.000</span>
+            <span>$1.000.000</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-aplicar">Aplicar Filtros</button>
+      </form>
+    </div>
+
+  
+    <div id="productos">
+      
+      <div class="bici">
+        <img src="https://assets.specialized.com/i/specialized/5719?$scom-pdp-product-image-xl$&fmt=webp" alt="Specialized Demo 7">
+        <span class="categoria-tag">MTB / Descenso</span>
+        <h4>Specialized Demo 7</h4>
+        <p><strong>Marca:</strong> Specialized</p>
+        <p><strong>Descripción:</strong> Cuadro reforzado de aluminio, suspensión Fox 180mm y frenos hidráulicos de 4 pistones.</p>
+        <div class="precio">$450.000</div>
+        <div class="cuotas">12 cuotas fijas de $37.500</div>
+        <button type="button" class="btn-agregar">🛒 Agregar al Carrito</button>
+      </div>
+
+
+      <div class="bici">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR-5w0M_8YYLQM3LWM8Lv_PP__TH6e2U1iiqrWT2UnzQ&s=10" alt="Giant Talon 1">
+        <span class="categoria-tag">Mountain Bike</span>
+        <h4>Giant Talon 1 29er</h4>
+        <p><strong>Marca:</strong> Giant</p>
+        <p><strong>Descripción:</strong> Rodado 29, transmisión Shimano Deore 1x10 y horquilla con bloqueo hidráulico.</p>
+        <div class="precio">$315.000</div>
+        <div class="cuotas">6 cuotas sin interés de $52.500</div>
+        <button type="button" class="btn-agregar">🛒 Agregar al Carrito</button>
+      </div>
+      <div class="bici">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxAWO8qBMbtB16eGTt7z0RXuIhhrfMB3xhCKvkqu-IZQ&s=10" alt="Specialized Allez Sprint">
+        <span class="categoria-tag">Ruta / Carrera</span>
+        <h4>Specialized Allez Sprint</h4>
+        <p><strong>Marca:</strong> Specialized</p>
+        <p><strong>Descripción:</strong> Bicicleta de ruta aerodinámica, grupo Shimano 105 2x11 y horquilla de carbono.</p>
+        <div class="precio">$490.000</div>
+        <div class="cuotas">12 cuotas fijas de $40.833</div>
+        <button type="button" class="btn-agregar">🛒 Agregar al Carrito</button>
+      </div>
+
+      <div class="bici">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ16NyCSLKyWKzg27YN0Y8yfJ8xo66hy4GUYklaumhMk3l9SO69SUQHan8&s=10" alt="Trek Marlin 7">
+        <span class="categoria-tag">MTB / Trail</span>
+        <h4>Trek Marlin 7 Gen 3</h4>
+        <p><strong>Marca:</strong> Trek</p>
+        <p><strong>Descripción:</strong> Geometría moderna, frenos a disco hidráulicos Tektro y cubiertas Bontrager.</p>
+        <div class="precio">$280.000</div>
+        <div class="cuotas">12 cuotas fijas de $23.333</div>
+        <button type="button" class="btn-agregar">🛒 Agregar al Carrito</button>
+      </div>
+
+      <div class="bici">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IiFtxgRpViO2nmq2AhnIFrHRIfo7FfYHVeCqL0rmijS6NSztOrhHEkk&s=10" alt="Scott Aspect 940">
+        <span class="categoria-tag">Mountain Bike</span>
+        <h4>Scott Aspect 940</h4>
+        <p><strong>Marca:</strong> Scott</p>
+        <p><strong>Descripción:</strong> Cuadro de aleación liviana, componentes Syncros y 18 velocidades Shimano.</p>
+        <div class="precio">$385.000</div>
+        <div class="cuotas">6 cuotas sin interés de $64.166</div>
+        <button type="button" class="btn-agregar">🛒 Agregar al Carrito</button>
+      </div>
+      <div class="bici">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWKaiT3S3bqYqyCz5eQx2JTsoCBXbSQG28TIgQ42rKTQ&s" alt="Cannondale Quick 4">
+        <span class="categoria-tag">Urbana / Paseo</span>
+        <h4>Cannondale Quick 4 Urban</h4>
+        <p><strong>Marca:</strong> Cannondale</p>
+        <p><strong>Descripción:</strong> Bicicleta urbana ágil y ligera con sensor de rueda integrado para conectividad.</p>
+        <div class="precio">$320.000</div>
+        <div class="cuotas">6 cuotas sin interés de $53.333</div>
+        <button type="button" class="btn-agregar">🛒 Agregar al Carrito</button>
+      </div>
+
+    </div>
+
+  </div>
+  <div id="pie">
+    <div class="pie-contenido">
+      <div class="pie-columna">
+        <h4>Ciclo Miku Store & Taller</h4>
+        <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Ubicación y Horarios</h4>
+        <p>📍 Av. Principal 1234, CABA</p>
+        <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+      </div>
+      <div class="pie-columna">
+        <h4>Contacto</h4>
+        <p>📞 Teléfono: +54 11 234-5678</p>
+        <p>✉️ Email: ventas@ciclomiku.com</p>
+      </div>
+    </div>
+    
+    <div class="pie-creditos">
+      CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+    </div>
+  </div>
+
+</body>
+<script>
+
+const botonUsuario = document.getElementById("btn-usuario");
+
+const menuUsuario = document.getElementById("menu-usuario");
+
+
+/* ABRIR Y CERRAR EL MENÚ */
+
+botonUsuario.addEventListener("click", function() {
+
+  if (menuUsuario.style.display === "block") {
+
+    menuUsuario.style.display = "none";
+
+  } else {
+
+    menuUsuario.style.display = "block";
+
+  }
+
+});
+
+
+/* CERRAR AL HACER CLIC AFUERA */
+
+document.addEventListener("click", function(event) {
+
+  if (!event.target.closest(".usuario-menu")) {
+
+    menuUsuario.style.display = "none";
+
+  }
+
+});
+
+</script>
+</html>
