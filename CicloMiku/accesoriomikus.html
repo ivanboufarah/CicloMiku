@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - Accesorios y Repuestos</title>
+  <meta name="description" content="Catálogo de accesorios, repuestos, cascos, luces e indumentaria para ciclistas en CicloMiku.">
+  <meta property="og:title" content="CicloMiku - Accesorios">
+  <meta property="og:description" content="Catálogo de accesorios, repuestos, cascos, luces e indumentaria para ciclistas en CicloMiku.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Estilos Personalizados de CicloMiku -->
+  <link rel="stylesheet" href="CSS/accesoriosmiku.css">
+  <!-- Estilo único de los corazones de favoritos (compartido por bicicletas y accesorios) -->
+  <link rel="stylesheet" href="CSS/corazones.css?v=2">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y MENÚ DE USUARIO
+       ========================================================================== -->
+  <header id="cabecera" class="sticky-top shadow-sm">
+    <h1><a href="index.html">Ciclo <span>Miku</span></a></h1>
+    
+    <nav id="navegacion">
+      <a href="index.html">Bicicletas</a>
+      <a href="accesoriomikus.html" class="activo">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </nav>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="menu_usuario/historial.html">📋 Historial</a>
+        <a href="menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: FILTROS Y ACCESORIOS
+       ========================================================================== -->
+  <main id="menu" class="container-fluid flex-grow-1">
+    <div class="row g-4">
+      
+      <!-- COLUMNA IZQUIERDA: FILTROS -->
+      <aside class="col-12 col-lg-3">
+        <div id="filtros">
+          <h3>Filtros</h3>
+          
+          <form action="#" onsubmit="event.preventDefault();">
+            <!-- Filtro por Categoría -->
+            <div class="grupo-filtro">
+              <h4>Categoría</h4>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-cascos" name="categoria" value="cascos" checked>
+                <label class="form-check-label" for="cat-cascos">Cascos de Seguridad</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-luces" name="categoria" value="luces" checked>
+                <label class="form-check-label" for="cat-luces">Luces LED</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-repuestos" name="categoria" value="repuestos" checked>
+                <label class="form-check-label" for="cat-repuestos">Repuestos y Cadenas</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-indumentaria" name="categoria" value="indumentaria">
+                <label class="form-check-label" for="cat-indumentaria">Indumentaria / Guantes</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-seguridad" name="categoria" value="seguridad">
+                <label class="form-check-label" for="cat-seguridad">Candados Antirrobo</label>
+              </div>
+            </div>
+
+            <!-- Filtro por Marca -->
+            <div class="grupo-filtro">
+              <h4>Marca</h4>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-bell" name="marca" value="bell" checked>
+                <label class="form-check-label" for="marca-bell">Bell</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-shimano" name="marca" value="shimano" checked>
+                <label class="form-check-label" for="marca-shimano">Shimano</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-giro" name="marca" value="giro" checked>
+                <label class="form-check-label" for="marca-giro">Giro</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-onguard" name="marca" value="onguard">
+                <label class="form-check-label" for="marca-onguard">OnGuard</label>
+              </div>
+            </div>
+
+            <!-- Filtro por Precio Máximo -->
+            <div class="filtro-precio">
+              <label for="precio">Precio máximo:</label>
+              <input type="range" class="form-range" id="precio" min="5000" max="150000" value="80000">
+              <div class="precios-rango">
+                <span>$5.000</span>
+                <span>$150.000</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-aplicar">Aplicar Filtros</button>
+          </form>
+        </div>
+      </aside>
+
+      <!-- COLUMNA DERECHA: GRILLA DE ACCESORIOS -->
+      <section class="col-12 col-lg-9">
+        <div id="productos">
+
+          <!-- Accesorio 1 -->
+          <article class="accesorio card h-100 producto-card" data-producto-id="7" data-gama="alta" data-marca="bell" data-categoria="seguridad" data-precio="78000">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfWw5r40XNNS3xnzC94kJ7d-G9c9o5gix_4gSf0jYRcQ&s=10" alt="Casco Bell 4Forty" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="7"
+                aria-label="Agregar Casco Bell 4Forty MIPS a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Seguridad</span>
+            <h4>Casco Bell 4Forty MIPS</h4>
+            <p><strong>Marca:</strong> Bell</p>
+            <p><strong>Descripción:</strong> Tecnología de protección contra impactos rotacionales MIPS, ventilación Sweat Guide.</p>
+            <div class="precio">$78.000</div>
+            <div class="cuotas">3 cuotas sin interés de $26.000</div>
+            <button type="button" class="btn-agregar" data-producto-id="7" data-nombre="Casco Bell 4Forty MIPS">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Accesorio 2 -->
+          <article class="accesorio card h-100 producto-card" data-producto-id="8" data-gama="media" data-marca="bell" data-categoria="luces" data-precio="24500">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1UlO6_X81B6t4Hxj6een3AYOM7_D92tnYAclQNjTC_DjBQXho8x1to6D&s=10" alt="Set Luces LED" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="8"
+                aria-label="Agregar Set Luces LED Recargables a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Iluminación</span>
+            <h4>Set Luces LED Recargables USB</h4>
+            <p><strong>Marca:</strong> CicloMiku Pro</p>
+            <p><strong>Descripción:</strong> Luz delantera de 800 lúmenes y trasera de alta visibilidad, resistentes al agua IPX6.</p>
+            <div class="precio">$24.500</div>
+            <div class="cuotas">3 cuotas de $8.166</div>
+            <button type="button" class="btn-agregar" data-producto-id="8" data-nombre="Set Luces LED Recargables USB">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Accesorio 3 -->
+          <article class="accesorio card h-100 producto-card" data-producto-id="9" data-gama="media" data-marca="giro" data-categoria="indumentaria" data-precio="18900">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsq_UQxmKmQ5jPb4FNkEVwWD4QL8AwmfNtLKq6WLZzWtax3PG_fgYWGgE&s=10" alt="Guantes Giro Gel" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="9"
+                aria-label="Agregar Guantes Giro Gel a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Indumentaria</span>
+            <h4>Guantes de Ciclismo Giro Gel</h4>
+            <p><strong>Marca:</strong> Giro</p>
+            <p><strong>Descripción:</strong> Acolchado con gel antideslizante, tela transpirable y refuerzo en palma para mayor agarre.</p>
+            <div class="precio">$18.900</div>
+            <div class="cuotas">3 cuotas sin interés de $6.300</div>
+            <button type="button" class="btn-agregar" data-producto-id="9" data-nombre="Guantes de Ciclismo Giro Gel">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Accesorio 4 -->
+          <article class="accesorio card h-100 producto-card" data-producto-id="10" data-gama="media" data-marca="shimano" data-categoria="herramientas" data-precio="15200">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeYu7rnstXqO_GTcFsV8P8ME_eBO_CReXAypGEhFWFNw&s" alt="Inflador de Mano" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="10"
+                aria-label="Agregar Inflador Portátil a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Herramientas</span>
+            <h4>Inflador Portátil con Manómetro</h4>
+            <p><strong>Marca:</strong> Beto</p>
+            <p><strong>Descripción:</strong> Compatible con válvulas Presta y Schrader (auto), presión máxima de 120 PSI.</p>
+            <div class="precio">$15.200</div>
+            <div class="cuotas">Efectivo 10% de descuento</div>
+            <button type="button" class="btn-agregar" data-producto-id="10" data-nombre="Inflador Portátil con Manómetro">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Accesorio 5 -->
+          <article class="accesorio card h-100 producto-card" data-producto-id="11" data-gama="alta" data-marca="bell" data-categoria="seguridad" data-precio="42000">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_FFx-L0xsRI4ivSTyVh86yHlaVph-6Zf8EC15jDnJXKJRu54qERPA3oU&s=10" alt="Candado U-Lock" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="11"
+                aria-label="Agregar Candado U-Lock Antirrobo a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Seguridad</span>
+            <h4>Candado U-Lock Antirrobo Acero</h4>
+            <p><strong>Marca:</strong> OnGuard</p>
+            <p><strong>Descripción:</strong> Grillete de acero endurecido de 14mm con cable de acero flexible de 1.2m incluido.</p>
+            <div class="precio">$42.000</div>
+            <div class="cuotas">6 cuotas fijas de $7.000</div>
+            <button type="button" class="btn-agregar" data-producto-id="11" data-nombre="Candado U-Lock Antirrobo Acero">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Accesorio 6 -->
+          <article class="accesorio card h-100 producto-card" data-producto-id="12" data-gama="media" data-marca="shimano" data-categoria="repuestos" data-precio="32500">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_SET1Eq6_cT5TC1vH2vBMmknwKpmyR6AKIqM_p_cGB7CgT9lLL0-W6rQ&s=10" alt="Cadena Shimano" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="12"
+                aria-label="Agregar Cadena Shimano Deore 11V a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Repuestos</span>
+            <h4>Cadena Shimano Deore 11V HG-X</h4>
+            <p><strong>Marca:</strong> Shimano</p>
+            <p><strong>Descripción:</strong> Cadena original de 116 eslabones con Quick-Link para transmisiones de 11 velocidades.</p>
+            <div class="precio">$32.500</div>
+            <div class="cuotas">3 cuotas sin interés de $10.833</div>
+            <button type="button" class="btn-agregar" data-producto-id="12" data-nombre="Cadena Shimano Deore 11V HG-X">🛒 Agregar al Carrito</button>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <footer id="pie">
+    <div class="container-fluid">
+      <div class="row pie-contenido">
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ciclo Miku Store & Taller</h4>
+          <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ubicación y Horarios</h4>
+          <p>📍 Av. Principal 1234, CABA</p>
+          <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Contacto</h4>
+          <p>📞 Teléfono: +54 11 234-5678</p>
+          <p>✉️ Email: ventas@ciclomiku.com</p>
+        </div>
+      </div>
+      
+      <div class="pie-creditos">
+        CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- CicloMiku AJAX & Catálogo Dinámico con PHP/MariaDB -->
+  <script src="js/api.js"></script>
+  <script src="js/favoritos.js"></script>
+  <script src="js/catalogo.js"></script>
+
+  <!-- Scripts de Interacción Personalizados -->
+  <script>
+    /* Menú desplegable de usuario */
+    const botonUsuario = document.getElementById("btn-usuario");
+    const menuUsuario = document.getElementById("menu-usuario");
+    botonUsuario.addEventListener("click", function(e) {
+      e.stopPropagation();
+      menuUsuario.style.display = (menuUsuario.style.display === "block") ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+      if (!event.target.closest(".usuario-menu")) { menuUsuario.style.display = "none"; }
+    });
+  </script>
+</body>
+</html>

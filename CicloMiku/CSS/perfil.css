@@ -1,0 +1,305 @@
+/* ==========================================================================
+   PERFIL.CSS - HOJA DE ESTILOS PARA MI PERFIL (CICLOMIKU - BOOTSTRAP 5)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F2ECDC !important;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+#cabecera {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #95C1F5;
+}
+
+#cabecera h1 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: bold;
+}
+
+#cabecera h1 a {
+  color: #F2ECDC;
+  text-decoration: none;
+}
+
+#cabecera h1 span {
+  color: #95C1F5;
+}
+
+#navegacion {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#navegacion a {
+  color: #F2ECDC;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: #2A467A;
+  transition: 0.2s;
+  font-size: 14px;
+  display: inline-block;
+}
+
+#navegacion a:hover,
+#navegacion a.activo {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+.usuario-menu {
+  position: relative;
+}
+
+#btn-usuario {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #95C1F5;
+  background-color: #2A467A;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+#btn-usuario:hover {
+  background-color: #95C1F5;
+}
+
+#menu-usuario {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 220px;
+  background-color: white;
+  border: 2px solid #95C1F5;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1050;
+}
+
+#menu-usuario a {
+  display: block;
+  padding: 12px 15px;
+  color: #2A467A;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#menu-usuario a:hover {
+  background-color: #F2ECDC;
+  color: #142E54;
+}
+
+.tarjeta-usuario {
+  background-color: #FFFFFF;
+  border: 2px solid #95C1F5;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 15px rgba(20, 46, 84, 0.08);
+}
+
+.perfil-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.perfil-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #95C1F5;
+  background-color: #142E54;
+  color: #F2ECDC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.perfil-info-principal h2 {
+  font-size: 24px;
+  color: #142E54;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.perfil-info-principal p {
+  color: #2A467A;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.rango-socio {
+  display: inline-block;
+  background-color: #eaf2fd;
+  color: #142E54;
+  border: 1.5px solid #95C1F5;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.caja-datos {
+  background-color: #faf8f3;
+  border: 1.5px solid #95C1F5;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
+}
+
+.caja-datos h3 {
+  font-size: 17px;
+  color: #142E54;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #95C1F5;
+  padding-bottom: 8px;
+  font-weight: bold;
+}
+
+.item-dato {
+  margin-bottom: 12px;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.item-dato strong {
+  color: #142E54;
+  min-width: 150px;
+}
+
+.item-dato span {
+  color: #2A467A;
+  font-weight: 500;
+}
+
+.acciones-perfil {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-accion-primario {
+  padding: 12px 20px;
+  background-color: #2A467A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-accion-primario:hover {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+.btn-accion-secundario {
+  padding: 12px 20px;
+  background-color: transparent;
+  color: #142E54;
+  border: 2px solid #2A467A;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-accion-secundario:hover {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+#pie {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 25px 25px 15px 25px;
+  margin-top: auto;
+  border-top: 4px solid #95C1F5;
+}
+
+.pie-contenido {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.pie-columna h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #95C1F5;
+  font-weight: bold;
+}
+
+.pie-columna p {
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.pie-creditos {
+  text-align: center;
+  font-size: 12px;
+  color: #a0aec0;
+  border-top: 1px solid #2A467A;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #cabecera {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  #navegacion {
+    justify-content: center;
+  }
+}

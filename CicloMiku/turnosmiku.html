@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - Sacar Turno de Taller</title>
+  <meta name="description" content="Solicitá tu turno de mantenimiento y service oficial de bicicleta en CicloMiku.">
+  <meta property="og:title" content="CicloMiku - Turnos de Taller">
+  <meta property="og:description" content="Solicitá tu turno de mantenimiento y service oficial de bicicleta en CicloMiku.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Estilos Personalizados de CicloMiku -->
+  <link rel="stylesheet" href="CSS/turnosmiku.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y MENÚ DE USUARIO
+       ========================================================================== -->
+  <header id="cabecera" class="sticky-top shadow-sm">
+    <h1><a href="index.html">Ciclo <span>Miku</span></a></h1>
+    
+    <nav id="navegacion">
+      <a href="index.html">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html" class="activo">Sacar Turno</a>
+    </nav>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="menu_usuario/historial.html">📋 Historial</a>
+        <a href="menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: FORMULARIO DE TURNOS Y RESUMEN
+       ========================================================================== -->
+  <main id="seccion-turnos" class="container-fluid flex-grow-1">
+    <div class="row g-4">
+      
+      <!-- COLUMNA IZQUIERDA: FORMULARIO DE RESERVA -->
+      <section class="col-12 col-lg-8">
+        <div id="formulario-turno">
+          <h2>Agendar Mantenimiento para tu Bicicleta</h2>
+          
+          <form action="#" method="post" onsubmit="event.preventDefault(); alert('¡Turno agendado exitosamente con código #CM-9842! Te enviamos la confirmación a tu correo.');">
+            
+            <!-- Paso 1 -->
+            <div class="paso-formulario">
+              <h3>Paso 1: Tipo de Mantenimiento</h3>
+              
+              <div class="campo mb-3">
+                <label for="tipo-servicio" class="form-label">Seleccioná el servicio requerido:</label>
+                <select id="tipo-servicio" name="servicio" class="form-select">
+                  <option value="basico" selected>Mantenimiento Básico (Ajuste, lubricación y regulación) - $20.000</option>
+                  <option value="integral">Service Integral Pro (Desarme completo, engrase y centrado) - $45.000</option>
+                  <option value="frenos">Purga y Calibración de Frenos Hidráulicos - $25.000</option>
+                  <option value="suspension">Service de Horquilla y Suspensión - $38.000</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="paso-formulario">
+              <h3>Paso 2: Datos de la Bicicleta</h3>
+              
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6 campo">
+                  <label for="marca-bici" class="form-label">Marca:</label>
+                  <input type="text" id="marca-bici" name="marca" class="form-control" placeholder="Ej: Specialized, Trek, Giant" required>
+                </div>
+                <div class="col-12 col-md-6 campo">
+                  <label for="modelo-bici" class="form-label">Modelo:</label>
+                  <input type="text" id="modelo-bici" name="modelo" class="form-control" placeholder="Ej: Demo 7, Talon 1, Marlin 7" required>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6 campo">
+                  <label for="anio-bici" class="form-label">Año de Fabricación:</label>
+                  <input type="number" id="anio-bici" name="anio" class="form-control" placeholder="Ej: 2023" min="1990" max="2026">
+                </div>
+                <div class="col-12 col-md-6 campo">
+                  <label for="tipo-bici" class="form-label">Tipo de Bicicleta:</label>
+                  <select id="tipo-bici" name="tipo" class="form-select">
+                    <option value="mtb">Mountain Bike (MTB)</option>
+                    <option value="ruta">Ruta / Carrera</option>
+                    <option value="urbana">Urbana / Paseo</option>
+                    <option value="gravel">Gravel</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="campo mb-3">
+                <label for="motivo" class="form-label">Motivo del ingreso o síntomas:</label>
+                <textarea id="motivo" name="motivo" class="form-control" placeholder="Describí ruidos, problemas en frenos o cambios..."></textarea>
+              </div>
+
+              <div class="campo mb-2">
+                <label for="foto-bici" class="form-label">Subir fotos de la bicicleta (Opcional para pre-diagnóstico):</label>
+                <input type="file" id="foto-bici" name="foto" class="form-control" accept="image/*" multiple disabled>
+                <div class="form-text">La carga de fotos todavía no está disponible: contanos el problema en el campo de arriba.</div>
+              </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="paso-formulario border-0 pb-0 mb-0">
+              <h3>Paso 3: Fecha y Datos de Contacto</h3>
+              
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6 campo">
+                  <label for="fecha" class="form-label">Fecha del Turno:</label>
+                  <input type="date" id="fecha" name="fecha" class="form-control" required>
+                  <div id="aviso-fecha" class="small text-danger mt-1"></div>
+                </div>
+                <div class="col-12 col-md-6 campo">
+                  <label for="horario" class="form-label">Horario de Entrega:</label>
+                  <select id="horario" name="horario" class="form-select">
+                    <option value="09:00">09:00 hs (Mañana)</option>
+                    <option value="11:30">11:30 hs (Mañana)</option>
+                    <option value="14:00" selected>14:00 hs (Tarde)</option>
+                    <option value="16:30">16:30 hs (Tarde)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6 campo">
+                  <label for="nombre" class="form-label">Nombre y Apellido:</label>
+                  <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Juan Pérez" required>
+                </div>
+                <div class="col-12 col-md-6 campo">
+                  <label for="telefono" class="form-label">Teléfono / WhatsApp:</label>
+                  <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="+54 11 5555-1234" required>
+                </div>
+              </div>
+
+              <div class="campo mb-3">
+                <label for="email" class="form-label">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="juan.perez@email.com" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-confirmar-turno">Confirmar y Solicitar Turno</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- COLUMNA DERECHA: RESUMEN Y TICKET -->
+      <aside class="col-12 col-lg-4">
+        <div id="resumen-turno" class="sticky-lg-top" style="top: 90px;">
+          <h3>Comprobante del Turno</h3>
+          
+          <div class="ticket-box">
+            <div class="text-muted small mb-1">Código de turno (se asigna al enviar la solicitud):</div>
+            <div class="ticket-numero" id="ticket-numero">—</div>
+            <small class="text-secondary">Presentá este código al ingresar tu bicicleta</small>
+          </div>
+
+          <div class="linea-resumen">
+            <span>Servicio:</span>
+            <strong id="resumen-servicio">Mantenimiento Básico</strong>
+          </div>
+
+          <div class="linea-resumen">
+            <span>Revisión inicial:</span>
+            <strong style="color: #2A467A;">Bonificada ($0)</strong>
+          </div>
+
+          <div class="linea-resumen">
+            <span>Tiempo estimado:</span>
+            <strong id="resumen-tiempo">24 a 48 hs</strong>
+          </div>
+
+          <div class="linea-resumen">
+            <span>Repuestos:</span>
+            <span class="text-muted">A cotizar en taller</span>
+          </div>
+
+          <div class="total-presupuesto">
+            <span>Presupuesto Base:</span>
+            <span id="resumen-presupuesto">$20.000</span>
+          </div>
+
+          <p class="small text-muted text-center mt-3 mb-0">
+            🛡️ Todos nuestros services cuentan con 30 días de garantía oficial en mano de obra.
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <footer id="pie">
+    <div class="container-fluid">
+      <div class="row pie-contenido">
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ciclo Miku Store & Taller</h4>
+          <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ubicación y Horarios</h4>
+          <p>📍 Av. Principal 1234, CABA</p>
+          <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Contacto</h4>
+          <p>📞 Teléfono: +54 11 234-5678</p>
+          <p>✉️ Email: soporte@ciclomiku.com</p>
+        </div>
+      </div>
+      
+      <div class="pie-creditos">
+        CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- CicloMiku AJAX & Turnos Dinámicos con PHP/MariaDB -->
+  <script src="js/api.js"></script>
+  <script src="js/turnos.js"></script>
+
+  <!-- Scripts de Interacción Personalizados -->
+  <script>
+    /* Menú desplegable de usuario */
+    const botonUsuario = document.getElementById("btn-usuario");
+    const menuUsuario = document.getElementById("menu-usuario");
+    botonUsuario.addEventListener("click", function(e) {
+      e.stopPropagation();
+      menuUsuario.style.display = (menuUsuario.style.display === "block") ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+      if (!event.target.closest(".usuario-menu")) { menuUsuario.style.display = "none"; }
+    });
+  </script>
+</body>
+</html>

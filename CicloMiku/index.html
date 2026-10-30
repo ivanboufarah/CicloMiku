@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku</title>
+  <meta name="description" content="Catálogo de bicicletas de ruta, mountain bike (MTB) y urbanas en CicloMiku.">
+  <meta property="og:title" content="CicloMiku">
+  <meta property="og:description" content="Catálogo de bicicletas de ruta, mountain bike (MTB) y urbanas en CicloMiku.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Estilos Personalizados de CicloMiku (conservan identidad de marca) -->
+  <link rel="stylesheet" href="CSS/CicloMiku.css">
+  <!-- Estilo único de los corazones de favoritos (compartido por bicicletas y accesorios) -->
+  <link rel="stylesheet" href="CSS/corazones.css?v=2">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y MENÚ DE USUARIO
+       ========================================================================== -->
+  <header id="cabecera" class="sticky-top shadow-sm">
+    <h1><a href="index.html">Ciclo <span>Miku</span></a></h1>
+    
+    <nav id="navegacion">
+      <a href="index.html" class="activo">Bicicletas</a>
+      <a href="accesoriomikus.html">Accesorios</a>
+      <a href="turnosmiku.html">Sacar Turno</a>
+    </nav>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="menu_usuario/perfil.html">👤 Ver perfil</a>
+        <a href="menu_usuario/favoritos.html">❤️ Favoritos</a>
+        <a href="menu_usuario/carrito.html">🛒 Carrito</a>
+        <a href="menu_usuario/historial.html">📋 Historial</a>
+        <a href="menu_usuario/notificaciones.html">🔔 Notificaciones</a>
+        <a href="menu_usuario/configuracion.html">⚙️ Configuración</a>
+        <a href="menu_usuario/registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: FILTROS Y CATÁLOGO DE BICICLETAS
+       ========================================================================== -->
+  <main id="menu" class="container-fluid flex-grow-1">
+    <div class="row g-4">
+      
+      <!-- COLUMNA IZQUIERDA: FILTROS -->
+      <aside class="col-12 col-lg-3">
+        <div id="filtros">
+          <h3>Filtros</h3>
+          
+          <form action="#" onsubmit="event.preventDefault();">
+            <!-- Filtro por Gama -->
+            <div class="grupo-filtro">
+              <h4>Gama</h4>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="gama-alta" name="gama" value="alta" checked>
+                <label class="form-check-label" for="gama-alta">Alta (Competición)</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="gama-media" name="gama" value="media" checked>
+                <label class="form-check-label" for="gama-media">Media (Deportiva)</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="gama-baja" name="gama" value="baja">
+                <label class="form-check-label" for="gama-baja">Baja / Entrada</label>
+              </div>
+            </div>
+
+            <!-- Filtro por Tipo / Modelo -->
+            <div class="grupo-filtro">
+              <h4>Tipo / Modelo</h4>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="mod-mtb" name="modelo" value="mtb" checked>
+                <label class="form-check-label" for="mod-mtb">Mountain Bike (MTB)</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="mod-ruta" name="modelo" value="ruta" checked>
+                <label class="form-check-label" for="mod-ruta">Ruta / Carrera</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="mod-urbana" name="modelo" value="urbana">
+                <label class="form-check-label" for="mod-urbana">Urbana / Paseo</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="mod-gravel" name="modelo" value="gravel">
+                <label class="form-check-label" for="mod-gravel">Gravel</label>
+              </div>
+            </div>
+
+            <!-- Filtro por Marca -->
+            <div class="grupo-filtro">
+              <h4>Marca</h4>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-specialized" name="marca" value="specialized" checked>
+                <label class="form-check-label" for="marca-specialized">Specialized</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-giant" name="marca" value="giant" checked>
+                <label class="form-check-label" for="marca-giant">Giant</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-trek" name="marca" value="trek" checked>
+                <label class="form-check-label" for="marca-trek">Trek</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="marca-scott" name="marca" value="scott">
+                <label class="form-check-label" for="marca-scott">Scott</label>
+              </div>
+            </div>
+
+            <!-- Filtro por Precio Máximo -->
+            <div class="filtro-precio">
+              <label for="precio">Precio máximo:</label>
+              <input type="range" class="form-range" id="precio" min="100000" max="1000000" value="500000">
+              <div class="precios-rango">
+                <span>$100.000</span>
+                <span>$1.000.000</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-aplicar">Aplicar Filtros</button>
+          </form>
+        </div>
+      </aside>
+
+      <!-- COLUMNA DERECHA: GRILLA DE PRODUCTOS -->
+      <section class="col-12 col-lg-9">
+        <div id="productos">
+          
+          <!-- Bici 1 -->
+          <article class="bici card h-100 producto-card" data-producto-id="1" data-gama="alta" data-marca="specialized" data-modelo="mtb" data-precio="450000">
+            <div class="producto-imagen">
+              <img src="https://assets.specialized.com/i/specialized/5719?$scom-pdp-product-image-xl$&fmt=webp" alt="Specialized Demo 7" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="1"
+                aria-label="Agregar Specialized Demo 7 a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">MTB / Descenso</span>
+            <h4>Specialized Demo 7</h4>
+            <p><strong>Marca:</strong> Specialized</p>
+            <p><strong>Descripción:</strong> Cuadro reforzado de aluminio, suspensión Fox 180mm y frenos hidráulicos de 4 pistones.</p>
+            <div class="precio">$450.000</div>
+            <div class="cuotas">12 cuotas fijas de $37.500</div>
+            <button type="button" class="btn-agregar" data-producto-id="1" data-nombre="Specialized Demo 7">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Bici 2 -->
+          <article class="bici card h-100 producto-card" data-producto-id="2" data-gama="media" data-marca="giant" data-modelo="mtb" data-precio="315000">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR-5w0M_8YYLQM3LWM8Lv_PP__TH6e2U1iiqrWT2UnzQ&s=10" alt="Giant Talon 1" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="2"
+                aria-label="Agregar Giant Talon 1 a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Mountain Bike</span>
+            <h4>Giant Talon 1 29er</h4>
+            <p><strong>Marca:</strong> Giant</p>
+            <p><strong>Descripción:</strong> Rodado 29, transmisión Shimano Deore 1x10 y horquilla con bloqueo hidráulico.</p>
+            <div class="precio">$315.000</div>
+            <div class="cuotas">6 cuotas sin interés de $52.500</div>
+            <button type="button" class="btn-agregar" data-producto-id="2" data-nombre="Giant Talon 1 29er">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Bici 3 -->
+          <article class="bici card h-100 producto-card" data-producto-id="3" data-gama="alta" data-marca="specialized" data-modelo="ruta" data-precio="490000">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxAWO8qBMbtB16eGTt7z0RXuIhhrfMB3xhCKvkqu-IZQ&s=10" alt="Specialized Allez Sprint" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="3"
+                aria-label="Agregar Specialized Allez Sprint a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Ruta / Carrera</span>
+            <h4>Specialized Allez Sprint</h4>
+            <p><strong>Marca:</strong> Specialized</p>
+            <p><strong>Descripción:</strong> Bicicleta de ruta aerodinámica, grupo Shimano 105 2x11 y horquilla de carbono.</p>
+            <div class="precio">$490.000</div>
+            <div class="cuotas">12 cuotas fijas de $40.833</div>
+            <button type="button" class="btn-agregar" data-producto-id="3" data-nombre="Specialized Allez Sprint">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Bici 4 -->
+          <article class="bici card h-100 producto-card" data-producto-id="4" data-gama="media" data-marca="trek" data-modelo="mtb" data-precio="280000">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ16NyCSLKyWKzg27YN0Y8yfJ8xo66hy4GUYklaumhMk3l9SO69SUQHan8&s=10" alt="Trek Marlin 7" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="4"
+                aria-label="Agregar Trek Marlin 7 a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">MTB / Trail</span>
+            <h4>Trek Marlin 7 Gen 3</h4>
+            <p><strong>Marca:</strong> Trek</p>
+            <p><strong>Descripción:</strong> Geometría moderna, frenos a disco hidráulicos Tektro y cubiertas Bontrager.</p>
+            <div class="precio">$280.000</div>
+            <div class="cuotas">12 cuotas fijas de $23.333</div>
+            <button type="button" class="btn-agregar" data-producto-id="4" data-nombre="Trek Marlin 7 Gen 3">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Bici 5 -->
+          <article class="bici card h-100 producto-card" data-producto-id="5" data-gama="media" data-marca="scott" data-modelo="mtb" data-precio="385000">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IiFtxgRpViO2nmq2AhnIFrHRIfo7FfYHVeCqL0rmijS6NSztOrhHEkk&s=10" alt="Scott Aspect 940" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="5"
+                aria-label="Agregar Scott Aspect 940 a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Mountain Bike</span>
+            <h4>Scott Aspect 940</h4>
+            <p><strong>Marca:</strong> Scott</p>
+            <p><strong>Descripción:</strong> Cuadro de aleación liviana, componentes Syncros y 18 velocidades Shimano.</p>
+            <div class="precio">$385.000</div>
+            <div class="cuotas">6 cuotas sin interés de $64.166</div>
+            <button type="button" class="btn-agregar" data-producto-id="5" data-nombre="Scott Aspect 940">🛒 Agregar al Carrito</button>
+          </article>
+
+          <!-- Bici 6 -->
+          <article class="bici card h-100 producto-card" data-producto-id="6" data-gama="media" data-marca="giant" data-modelo="urbana" data-precio="320000">
+            <div class="producto-imagen">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWKaiT3S3bqYqyCz5eQx2JTsoCBXbSQG28TIgQ42rKTQ&s" alt="Cannondale Quick 4" class="card-img-top">
+              <button
+                type="button"
+                class="btn-favorito"
+                data-producto-id="6"
+                aria-label="Agregar Cannondale Quick 4 Urban a favoritos"
+                aria-pressed="false"
+                title="Agregar a favoritos">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+            <span class="categoria-tag badge">Urbana / Paseo</span>
+            <h4>Cannondale Quick 4 Urban</h4>
+            <p><strong>Marca:</strong> Cannondale</p>
+            <p><strong>Descripción:</strong> Bicicleta urbana ágil y ligera con sensor de rueda integrado para conectividad.</p>
+            <div class="precio">$320.000</div>
+            <div class="cuotas">6 cuotas sin interés de $53.333</div>
+            <button type="button" class="btn-agregar" data-producto-id="6" data-nombre="Cannondale Quick 4 Urban">🛒 Agregar al Carrito</button>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <footer id="pie">
+    <div class="container-fluid">
+      <div class="row pie-contenido">
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ciclo Miku Store & Taller</h4>
+          <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ubicación y Horarios</h4>
+          <p>📍 Av. Principal 1234, CABA</p>
+          <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Contacto</h4>
+          <p>📞 Teléfono: +54 11 234-5678</p>
+          <p>✉️ Email: ventas@ciclomiku.com</p>
+        </div>
+      </div>
+      
+      <div class="pie-creditos">
+        CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- CicloMiku AJAX & Catálogo Dinámico con PHP/MariaDB -->
+  <script src="js/api.js"></script>
+  <script src="js/favoritos.js"></script>
+  <script src="js/catalogo.js"></script>
+
+  <!-- Scripts de Interacción Personalizados -->
+  <script>
+    /* Menú desplegable de usuario */
+    const botonUsuario = document.getElementById("btn-usuario");
+    const menuUsuario = document.getElementById("menu-usuario");
+    botonUsuario.addEventListener("click", function(e) {
+      e.stopPropagation();
+      menuUsuario.style.display = (menuUsuario.style.display === "block") ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+      if (!event.target.closest(".usuario-menu")) { menuUsuario.style.display = "none"; }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+/* ==========================================================================
+   CICLOMIKU - TURNOS DE TALLER (INTEGRADO CON BOOTSTRAP 5)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F2ECDC !important;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+#cabecera {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #95C1F5;
+}
+
+#cabecera h1 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: bold;
+}
+
+#cabecera h1 a {
+  color: #F2ECDC;
+  text-decoration: none;
+}
+
+#cabecera h1 span {
+  color: #95C1F5;
+}
+
+#navegacion {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#navegacion a {
+  color: #F2ECDC;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #2A467A;
+  transition: 0.2s;
+  display: inline-block;
+}
+
+#navegacion a:hover,
+#navegacion a.activo {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+.usuario-menu {
+  position: relative;
+}
+
+#btn-usuario {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #95C1F5;
+  background-color: #2A467A;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+#btn-usuario:hover {
+  background-color: #95C1F5;
+}
+
+#menu-usuario {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 220px;
+  background-color: white;
+  border: 2px solid #95C1F5;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1050;
+}
+
+#menu-usuario a {
+  display: block;
+  padding: 12px 15px;
+  color: #2A467A;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#menu-usuario a:hover {
+  background-color: #F2ECDC;
+  color: #142E54;
+}
+
+#seccion-turnos {
+  flex: 1;
+  padding: 20px 25px;
+}
+
+#formulario-turno {
+  background-color: white;
+  border: 2px solid #95C1F5;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#formulario-turno h2 {
+  font-size: 22px;
+  color: #142E54;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #95C1F5;
+  padding-bottom: 8px;
+  font-weight: bold;
+}
+
+.paso-formulario {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.paso-formulario h3 {
+  font-size: 16px;
+  color: #2A467A;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.campo {
+  margin-bottom: 12px;
+}
+
+.campo label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2A467A;
+}
+
+.campo input[type="text"],
+.campo input[type="number"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo input[type="date"],
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #95C1F5;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: #2A467A;
+  box-shadow: 0 0 0 3px rgba(149, 193, 245, 0.4);
+}
+
+.campo textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+#resumen-turno {
+  background-color: white;
+  border: 2px solid #95C1F5;
+  border-radius: 8px;
+  padding: 22px;
+  height: fit-content;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#resumen-turno h3 {
+  font-size: 18px;
+  color: #142E54;
+  margin-bottom: 15px;
+  font-weight: bold;
+  border-bottom: 2px solid #95C1F5;
+  padding-bottom: 6px;
+}
+
+.ticket-box {
+  background-color: #eaf2fd;
+  border: 2px dashed #2A467A;
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.ticket-numero {
+  font-size: 24px;
+  font-weight: bold;
+  color: #142E54;
+  letter-spacing: 1px;
+}
+
+.linea-resumen {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #2A467A;
+}
+
+.total-presupuesto {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 2px solid #95C1F5;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  color: #142E54;
+}
+
+.btn-confirmar-turno {
+  width: 100%;
+  padding: 12px;
+  background-color: #2A467A;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.btn-confirmar-turno:hover {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+#pie {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 25px 25px 15px 25px;
+  margin-top: auto;
+  border-top: 4px solid #95C1F5;
+}
+
+.pie-contenido {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.pie-columna h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #95C1F5;
+  font-weight: bold;
+}
+
+.pie-columna p {
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.pie-creditos {
+  text-align: center;
+  font-size: 12px;
+  color: #a0aec0;
+  border-top: 1px solid #2A467A;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #cabecera {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  #navegacion {
+    justify-content: center;
+  }
+  
+  #seccion-turnos {
+    padding: 15px;
+  }
+}

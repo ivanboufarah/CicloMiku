@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - ⚙️ Configuración de Cuenta</title>
+  <meta name="description" content="Configuración de preferencias, seguridad y datos de cuenta en CicloMiku.">
+  <meta property="og:title" content="CicloMiku - Configuración">
+  <meta property="og:description" content="Configuración de cuenta en CicloMiku.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Estilos Personalizados de CicloMiku -->
+  <link rel="stylesheet" href="../CSS/configuracion.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y MENÚ DE USUARIO
+       ========================================================================== -->
+  <header id="cabecera" class="sticky-top shadow-sm">
+    <h1><a href="../index.html">Ciclo <span>Miku</span></a></h1>
+    
+    <nav id="navegacion">
+      <a href="../index.html">Bicicletas</a>
+      <a href="../accesoriomikus.html">Accesorios</a>
+      <a href="../turnosmiku.html">Sacar Turno</a>
+    </nav>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="perfil.html">👤 Ver perfil</a>
+        <a href="favoritos.html">❤️ Favoritos</a>
+        <a href="carrito.html">🛒 Carrito</a>
+        <a href="historial.html">📋 Historial</a>
+        <a href="notificaciones.html">🔔 Notificaciones</a>
+        <a href="configuracion.html">⚙️ Configuración</a>
+        <a href="registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: CONFIGURACIÓN
+       ========================================================================== -->
+  <main class="container py-4 flex-grow-1">
+    <div class="tarjeta-usuario">
+      <h2 class="titulo-seccion">⚙️ Configuración y Preferencias</h2>
+      <p class="subtitulo-seccion">Administrá tus datos, tu contraseña y tus notificaciones. Todo se guarda en tu cuenta.</p>
+
+      <form id="form-config" novalidate>
+        <div class="bloque-config">
+          <h3>👤 Datos Personales y de Contacto</h3>
+          <div class="row g-3">
+            <div class="col-12 col-md-6 campo"><label for="conf-nombre" class="form-label">Nombre:</label><input type="text" id="conf-nombre" class="form-control input-config" maxlength="100" required></div>
+            <div class="col-12 col-md-6 campo"><label for="conf-apellido" class="form-label">Apellido:</label><input type="text" id="conf-apellido" class="form-control input-config" maxlength="100" required></div>
+            <div class="col-12 col-md-6 campo"><label for="conf-email" class="form-label">Correo Electrónico:</label><input type="email" id="conf-email" class="form-control input-config" readonly><div class="form-text">El correo es tu usuario y no se puede modificar.</div></div>
+            <div class="col-12 col-md-6 campo"><label for="conf-telefono" class="form-label">Teléfono / WhatsApp:</label><input type="tel" id="conf-telefono" class="form-control input-config" maxlength="25"></div>
+            <div class="col-12 col-md-6 campo"><label for="conf-dni" class="form-label">Documento (DNI / Pasaporte):</label><input type="text" id="conf-dni" class="form-control input-config" maxlength="30"></div>
+          </div>
+        </div>
+
+        <div class="bloque-config">
+          <h3>🔒 Cambiar contraseña</h3>
+          <p class="small text-muted">Dejá estos campos vacíos si no querés cambiarla.</p>
+          <div class="row g-3" style="max-width: 650px;">
+            <div class="col-12 campo">
+              <label for="conf-pass-actual" class="form-label">Contraseña actual:</label>
+              <div class="input-group"><input type="password" id="conf-pass-actual" class="form-control input-config" autocomplete="current-password">
+                <button type="button" class="btn btn-outline-secondary btn-secundario" onclick="alternarPass('conf-pass-actual', this)">Mostrar</button></div>
+            </div>
+            <div class="col-12 campo">
+              <label for="conf-pass-nueva" class="form-label">Nueva contraseña:</label>
+              <div class="input-group"><input type="password" id="conf-pass-nueva" class="form-control input-config" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+                <button type="button" class="btn btn-outline-secondary btn-secundario" onclick="alternarPass('conf-pass-nueva', this)">Mostrar</button></div>
+            </div>
+            <div class="col-12 campo">
+              <label for="conf-pass-confirm" class="form-label">Repetir nueva contraseña:</label>
+              <input type="password" id="conf-pass-confirm" class="form-control input-config" autocomplete="new-password">
+            </div>
+          </div>
+        </div>
+
+        <div class="bloque-config">
+          <h3>🔔 Preferencias de Notificaciones</h3>
+          <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" id="notif-wa"><label class="form-check-label" for="notif-wa">Avisarme por WhatsApp cuando mi bicicleta esté lista para retirar del taller.</label></div>
+          <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" id="notif-recordatorio"><label class="form-check-label" for="notif-recordatorio">Recordatorio antes de mi turno agendado de mantenimiento.</label></div>
+          <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" id="notif-email"><label class="form-check-label" for="notif-email">Correos sobre mis pedidos.</label></div>
+          <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" id="notif-promos"><label class="form-check-label" for="notif-promos">Promociones del club.</label></div>
+        </div>
+
+        <div class="bloque-config">
+          <h3>📍 Dirección de Entrega Principal</h3>
+          <div class="row g-3">
+            <div class="col-12 col-md-8 campo"><label for="conf-direccion" class="form-label">Calle y altura (y piso / depto):</label><input type="text" id="conf-direccion" class="form-control input-config" maxlength="255"></div>
+            <div class="col-12 col-md-4 campo"><label for="conf-codigo_postal" class="form-label">Código postal:</label><input type="text" id="conf-codigo_postal" class="form-control input-config" maxlength="20"></div>
+            <div class="col-12 col-md-6 campo"><label for="conf-ciudad" class="form-label">Ciudad:</label><input type="text" id="conf-ciudad" class="form-control input-config" maxlength="100"></div>
+            <div class="col-12 col-md-6 campo"><label for="conf-instrucciones_entrega" class="form-label">Instrucciones de entrega:</label><input type="text" id="conf-instrucciones_entrega" class="form-control input-config" maxlength="500"></div>
+          </div>
+        </div>
+
+        <div class="bloque-config">
+          <h3>💳 Preferencias de pago y apariencia</h3>
+          <p class="small text-muted">Solo guardamos una preferencia. Nunca almacenamos números de tarjeta.</p>
+          <div class="row g-3">
+            <div class="col-12 col-md-6 campo"><label for="conf-metodo-pago" class="form-label">Forma de pago preferida:</label><select id="conf-metodo-pago" class="form-select input-config"></select></div>
+            <div class="col-12 col-md-6 campo"><label for="conf-tema" class="form-label">Tema visual:</label>
+              <select id="conf-tema" class="form-select input-config"><option value="claro">Claro</option><option value="oscuro">Oscuro</option></select>
+              <div class="form-text">Se guarda en tu cuenta; el tema oscuro todavía no está diseñado en el sitio.</div></div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mt-4">
+          <button type="submit" id="btn-guardar-config" class="btn-accion">💾 Guardar cambios</button>
+          <a href="#" id="btn-cerrar-sesion" class="btn-accion btn-peligro">🚪 Cerrar Sesión</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <footer id="pie">
+    <div class="container-fluid">
+      <div class="row pie-contenido">
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ciclo Miku Store & Taller</h4>
+          <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ubicación y Horarios</h4>
+          <p>📍 Av. Principal 1234, CABA</p>
+          <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Contacto</h4>
+          <p>📞 Teléfono: +54 11 234-5678</p>
+          <p>✉️ Email: soporte@ciclomiku.com</p>
+        </div>
+      </div>
+      
+      <div class="pie-creditos">
+        CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- CicloMiku AJAX & Configuración Dinámica con PHP/MariaDB -->
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+
+  <!-- Scripts de Configuración -->
+  <script>
+    /* Menú desplegable de usuario */
+    const botonUsuario = document.getElementById("btn-usuario");
+    const menuUsuario = document.getElementById("menu-usuario");
+    botonUsuario.addEventListener("click", function(e) {
+      e.stopPropagation();
+      menuUsuario.style.display = (menuUsuario.style.display === "block") ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+      if (!event.target.closest(".usuario-menu")) { menuUsuario.style.display = "none"; }
+    });
+  </script>
+</body>
+</html>

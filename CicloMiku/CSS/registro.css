@@ -1,0 +1,294 @@
+/* ==========================================================================
+   CICLOMIKU - REGISTRO E INICIO DE SESIÓN (BOOTSTRAP 5)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F2ECDC !important;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+#cabecera {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #95C1F5;
+}
+
+#cabecera h1 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: bold;
+}
+
+#cabecera h1 a {
+  color: #F2ECDC;
+  text-decoration: none;
+}
+
+#cabecera h1 span {
+  color: #95C1F5;
+}
+
+#navegacion {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#navegacion a {
+  color: #F2ECDC;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #2A467A;
+  transition: 0.2s;
+  display: inline-block;
+}
+
+#navegacion a:hover {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+#menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+}
+
+#registro {
+  background-color: #FFFFFF;
+  border: 2px solid #95C1F5;
+  border-radius: 12px;
+  color: #142E54;
+  width: 100%;
+  max-width: 520px;
+  padding: 30px 25px;
+  box-shadow: 0 6px 20px rgba(20, 46, 84, 0.1);
+}
+
+.pestanas-auth {
+  display: flex;
+  border-bottom: 2px solid #95C1F5;
+  margin-bottom: 22px;
+  gap: 10px;
+}
+
+.pestanas-auth button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2A467A;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: 0.2s;
+}
+
+.pestanas-auth button:hover {
+  color: #142E54;
+}
+
+.pestanas-auth button.pestana-activa {
+  color: #142E54;
+  border-bottom: 3px solid #142E54;
+}
+
+#registro h3 {
+  font-size: 22px;
+  color: #142E54;
+  margin-bottom: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtitulo-form {
+  font-size: 14px;
+  color: #2A467A;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.campo {
+  margin-bottom: 15px;
+}
+
+.campo label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2A467A;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="password"],
+.campo input[type="tel"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #95C1F5;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #142E54;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus {
+  border-color: #2A467A;
+  box-shadow: 0 0 0 3px rgba(149, 193, 245, 0.4);
+}
+
+.input-con-boton {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-mostrar {
+  background-color: #eaf2fd;
+  border: 1px solid #95C1F5;
+  color: #2A467A;
+  padding: 0 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.btn-mostrar:hover {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+.fila-recordar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.campo-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #2A467A;
+  cursor: pointer;
+}
+
+.campo-checkbox input {
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.enlace-olvido {
+  color: #2A467A;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-principal {
+  width: 100%;
+  padding: 12px;
+  background-color: #2A467A;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+.btn-principal:hover {
+  background-color: #95C1F5;
+  color: #142E54;
+}
+
+.pie-formulario {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 18px;
+  color: #2A467A;
+}
+
+.pie-formulario a {
+  font-weight: bold;
+  color: #142E54;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.alerta-mensaje {
+  display: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#pie {
+  background-color: #142E54;
+  color: #F2ECDC;
+  padding: 20px 25px 15px 25px;
+  margin-top: auto;
+  border-top: 4px solid #95C1F5;
+}
+
+.pie-contenido {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.pie-columna h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #95C1F5;
+  font-weight: bold;
+}
+
+.pie-columna p {
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.pie-creditos {
+  text-align: center;
+  font-size: 12px;
+  color: #a0aec0;
+  border-top: 1px solid #2A467A;
+  padding-top: 10px;
+}

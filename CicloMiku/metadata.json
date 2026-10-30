@@ -1,0 +1,8 @@
+{
+  "name": "CicloMiku",
+  "description": "Catálogo de bicicletas de ruta, mountain bike (MTB) y urbanas en CicloMiku.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

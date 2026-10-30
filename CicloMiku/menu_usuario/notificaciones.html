@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CicloMiku - 🔔 Centro de Notificaciones</title>
+  <meta name="description" content="Centro de avisos y notificaciones de pedidos y taller en CicloMiku.">
+  <meta property="og:title" content="CicloMiku - Notificaciones">
+  <meta property="og:description" content="Centro de avisos en CicloMiku.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Estilos Personalizados de CicloMiku -->
+  <link rel="stylesheet" href="../CSS/notificaciones.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABECERA CON LOGO, NAVEGACIÓN Y MENÚ DE USUARIO
+       ========================================================================== -->
+  <header id="cabecera" class="sticky-top shadow-sm">
+    <h1><a href="../index.html">Ciclo <span>Miku</span></a></h1>
+    
+    <nav id="navegacion">
+      <a href="../index.html">Bicicletas</a>
+      <a href="../accesoriomikus.html">Accesorios</a>
+      <a href="../turnosmiku.html">Sacar Turno</a>
+    </nav>
+
+    <div class="usuario-menu">
+      <button id="btn-usuario" aria-label="Menú de Usuario" title="Mi Cuenta">
+        👤
+      </button>
+
+      <div id="menu-usuario">
+        <a href="perfil.html">👤 Ver perfil</a>
+        <a href="favoritos.html">❤️ Favoritos</a>
+        <a href="carrito.html">🛒 Carrito</a>
+        <a href="historial.html">📋 Historial</a>
+        <a href="notificaciones.html">🔔 Notificaciones</a>
+        <a href="configuracion.html">⚙️ Configuración</a>
+        <a href="registro.html">🚪 Iniciar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. CONTENIDO PRINCIPAL: NOTIFICACIONES
+       ========================================================================== -->
+  <main class="container py-4 flex-grow-1">
+    
+    <div class="tarjeta-usuario">
+      <div class="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom flex-wrap gap-2">
+        <div>
+          <h2 class="titulo-seccion border-0 p-0 m-0">🔔 Notificaciones y Avisos</h2>
+          <p class="subtitulo-seccion m-0 mt-1">Enterate del estado de tus bicicletas en el taller y novedades de tus compras.</p>
+        </div>
+        <div>
+          <button type="button" class="btn-accion btn-secundario" onclick="marcarTodasLeidas()">
+            ✓ Marcar todas como leídas
+          </button>
+        </div>
+      </div>
+
+      <!-- LISTA DE NOTIFICACIONES -->
+      <div class="lista-notificaciones" id="contenedor-notifs">
+        <div class="text-center py-5"><div class="spinner-border text-primary" role="status"></div></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       3. PIE DE PÁGINA (FOOTER)
+       ========================================================================== -->
+  <footer id="pie">
+    <div class="container-fluid">
+      <div class="row pie-contenido">
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ciclo Miku Store & Taller</h4>
+          <p>Venta de bicicletas de primeras marcas, indumentaria, accesorios y repuestos originales.</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Ubicación y Horarios</h4>
+          <p>📍 Av. Principal 1234, CABA</p>
+          <p>🕒 Lun a Vie: 09:00 a 18:00 | Sáb: 09:00 a 14:00</p>
+        </div>
+        <div class="col-12 col-md-4 pie-columna">
+          <h4>Contacto</h4>
+          <p>📞 Teléfono: +54 11 234-5678</p>
+          <p>✉️ Email: soporte@ciclomiku.com</p>
+        </div>
+      </div>
+      
+      <div class="pie-creditos">
+        CONSTRUCCIÓN DE SOFTWARE - Taller G605 | Desarrollador: Ivan Boufarah
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- CicloMiku AJAX & Notificaciones Dinámicas con PHP/MariaDB -->
+  <script src="../js/api.js"></script>
+  <script src="../js/notificaciones.js"></script>
+
+  <!-- Scripts de Notificaciones -->
+  <script>
+    /* Menú desplegable de usuario */
+    const botonUsuario = document.getElementById("btn-usuario");
+    const menuUsuario = document.getElementById("menu-usuario");
+    botonUsuario.addEventListener("click", function(e) {
+      e.stopPropagation();
+      menuUsuario.style.display = (menuUsuario.style.display === "block") ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+      if (!event.target.closest(".usuario-menu")) { menuUsuario.style.display = "none"; }
+    });
+  </script>
+</body>
+</html>
